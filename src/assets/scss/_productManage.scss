@@ -1,0 +1,27 @@
+.border-bottom-2 {
+  border-bottom: 2px solid $third;
+}
+.manage-pagination {
+  .page-item {
+    color: $third;
+  }
+  .page-link {
+    color: $third;
+  }
+}
+
+/*order*/
+.listReadonly {
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  background-color: #e9ecef;
+  list-style-position: inside;
+}
+.list-insie {
+  list-style-position: inside;
+}
+.product-img {
+  object-fit: cover;
+  max-height: 190px;
+  width: 100%;
+}

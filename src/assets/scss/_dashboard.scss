@@ -1,0 +1,81 @@
+.sidebar {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 80px;
+  padding-left: 20px;
+  transition: 0.5s;
+  min-height: 100vh;
+  position: fixed;
+  width: 190px;
+  background-color: rgba(#000000, 0.82);
+  &.open {
+    transform: translateX(0);
+  }
+  &.close {
+    transform: translateX(-190px);
+  }
+
+  .nav-link,
+  .nav-item {
+    color: white;
+    &:hover {
+      color: $info;
+    }
+    &.active {
+      color: $primary;
+    }
+  }
+}
+
+/*摺疊按鈕*/
+.dashboard-main {
+  transition: all 0.5s;
+
+  &.open {
+    padding-left: 190px;
+  }
+  &.close {
+    padding-left: 0px;
+  }
+}
+
+.display-box {
+  box-shadow: 1px 1px 2px 2px rgba(#000000, 0.6);
+  &.bg-warning {
+    &:hover {
+      background-color: darken($warning, 5%) !important;
+    }
+  }
+  &.bg-use {
+    &:hover {
+      background-color: darken($use, 5%) !important;
+    }
+  }
+  &.bg-primary {
+    &:hover {
+      background-color: darken($primary, 5%) !important;
+    }
+  }
+}
+.time-select {
+  max-width: 100px;
+}
+.infoCard-shadow {
+  box-shadow: 1px 1px 2px 2px rgba(#000000, 0.6);
+}
+.infoCard-title {
+  font-weight: 900;
+  font-size: 1.2em;
+}
+.manage-header {
+  border-left: 6px solid $abstract;
+  padding-left: 12px;
+}
+.manage-text {
+  padding-left: 18px;
+}
+.list-point-inset {
+  list-style-position: inside;
+}

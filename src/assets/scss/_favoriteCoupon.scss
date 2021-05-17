@@ -1,0 +1,19 @@
+/**favorite**/
+.content-striped > div {
+  &:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/**coupon*/
+.coupon {
+  background-color: $use;
+  max-width: 100px;
+  max-height: 50px;
+}
+.input-readonly {
+  border: 1px solid $third;
+  outline: none;
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}

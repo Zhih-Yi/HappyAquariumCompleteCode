@@ -1,0 +1,283 @@
+[v-cloak] {
+  display: none !important;
+}
+.invisible{
+visibility: hidden;
+}
+.home {
+  background-color: $lightgray;
+}
+.btn-hv-style{
+&:hover{
+  color:white;
+}
+}
+/*[transition] slide*/
+.slide-leave-active,
+.slide-enter-active {
+  transition: all 0.9s ease;
+}
+
+.slide-enter {
+  transform: translateY(-10%);
+}
+.slide-leave {
+  transform: translateY(100%);
+}
+//向上按鈕
+.toTop {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 60;
+  &:hover {
+    transform: scale(1.5);
+    transition: all 0.3s;
+  }
+}
+//首頁動畫
+.animated {
+  opacity: 0;
+  transition: all 0.8s;
+  transform: translateY(50px);
+}
+.animated-x {
+  opacity: 0;
+  transition: all 0.7s;
+  transform: translateX(-100px);
+}
+.slidein {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fadein {
+  opacity: 1;
+  transform: translateY(0);
+}
+//首頁標題間距
+.pt-header{
+padding-top:4rem;
+}
+.pt-header-m{
+  padding-top:calc( 4rem - 24px -1rem );
+  }
+//navbar
+.navbar-toggler {
+  &:focus {
+    box-shadow: none;
+  }
+}
+.navbar-main {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.7);
+  .nav-link {
+    padding-left: 12px;
+    color: white;
+    @include media-breakpoint-up(md) {
+      padding-left: initial;
+    }
+
+    &:hover,
+    &:focus {
+      color: $info;
+    }
+    &.active {
+      background-color: $primary;
+      font-weight: 900;
+      border-radius: 10px;
+      border: 3px solid $info;
+
+      @include media-breakpoint-up(md) {
+        border: none;
+        border-radius: 0;
+        border-bottom: 4px solid $primary;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+//carousel
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.3);
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  padding: 60px 30px;
+}
+
+.header-carousel-item {
+  height: 350px;
+}
+.bg-cover {
+  background-position: center center;
+  background-size: cover;
+}
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin: 15px;
+}
+/*header title*/
+.text-shadow {
+  text-shadow: 0.2em 0.2em $primary;
+}
+.header-line {
+  width: 300px;
+  height: 4px;
+  background-color: $info;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+//cardgroup
+
+.card-img-size {
+  object-fit: cover;
+  height: 180px;
+}
+a {
+  text-decoration: none;
+}
+.link-shop {
+  &:hover {
+    animation: rotate 0.7s linear;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.card-img-wrapper {
+  overflow: hidden;
+  position: relative;
+  .view-more {
+    opacity: 0;
+    transition: all 0.3s;
+    color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    font-size: 20px;
+  }
+}
+
+.card {
+  &:hover .card-img {
+    transform: scale(1.3);
+  }
+  &:hover .my-favorite {
+    z-index: 30;
+  }
+  &:hover .view-more {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+/*nav menu*/
+.bar-bg {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.menu-item {
+  position: relative;
+  height: 100px;
+  margin: 10px;
+
+  &:hover .layer {
+    top: 0;
+    transition: 0.3s;
+    padding-top: 30px;
+  }
+
+  .layer {
+    background-color: rgba(255, 255, 255, 0.6);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    font-size: 24px;
+  }
+}
+/*footer*/
+.footer {
+  position: relative;
+  background-image: url("~@/assets/images/footerWaveBg.png");
+  background-size: cover;
+  padding-bottom: 10px;
+  padding-top: 80px;
+  bottom:0;
+  @include media-breakpoint-up(md) {
+   margin-top: 60px;
+   padding-top: 150px;
+  }
+}
+
+.icon-link {
+  i {
+    color: $secondary;
+  }
+  &:hover i {
+    color: white;
+  }
+}
+.contact-link {
+  color: $secondary;
+  &:hover {
+    color: white;
+  }
+}
+/*購物車*/
+.cart {
+  position: relative;
+  cursor: pointer;
+  &-num {
+    position: absolute;
+    top: 0px;
+    right: 6px;
+    padding: 3px 5px;
+  }
+}
+.cart-content {
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  font-size: 14px;
+
+  .fix-footer {
+    position: sticky;
+    bottom: 0;
+    overflow: hidden;
+  }
+}
+.table-scroll {
+  max-height: calc(100vh - 200px); //navbar
+  overflow-y: auto;
+}
+/*內頁標題*/
+.img-header {
+  height: 180px;
+  .img-header-title {
+    color: white;
+    text-shadow: 0.1em 0.1em 0.2em black;
+  }
+}
