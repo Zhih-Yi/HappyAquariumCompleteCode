@@ -12,6 +12,10 @@ visibility: hidden;
   color:white;
 }
 }
+.btn-use:disabled, .btn-use.disabled{
+background-color: lighten($secondary, 20%);
+color: $secondary;
+}
 /*[transition] slide*/
 .slide-leave-active,
 .slide-enter-active {

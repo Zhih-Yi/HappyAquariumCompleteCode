@@ -12188,6 +12188,11 @@ fieldset:disabled .btn {
   color: white;
 }
 
+.btn-use:disabled, .btn-use.disabled {
+  background-color: #f1f1f1;
+  color: #BEBEBE;
+}
+
 /*[transition] slide*/
 .slide-leave-active,
 .slide-enter-active {

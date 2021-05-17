@@ -184,7 +184,7 @@
                 </div>
               </div>
               <div class="text-end mb-4">
-                <button type="submit" class="btn btn-use btn-hv-style" :disabled="invalid||cart.length===0" >送出訂單<i class="fas fa-angle-double-right ms-2"></i></button>
+                <button type="submit" class="btn btn-use btn-hv-style" :disabled = "invalid||cart.length===0">送出訂單<i class="fas fa-angle-double-right ms-2"></i></button>
               </div>
             </form>
            </ValidationObserver>
