@@ -117,7 +117,7 @@ const routes = [
             name: '首頁',
             link: '/'
           }, {
-            name: '結帳-訂單結帳'
+            name: '結帳-訂單付款'
           }]
         }
       },

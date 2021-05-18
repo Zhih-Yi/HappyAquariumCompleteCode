@@ -11,7 +11,7 @@
                   查看更多
                 </div>
                 <Myfavorite :productID="item.link"></Myfavorite>
-                <img :src="item.imageUrl" class="card-img card-img-size" :alt="item.title">
+                <img v-lazy="item.imageUrl" class="card-img card-img-size" :alt="item.title">
               </div>
               <div class="card-body">
                   <p class="card-title  text-third"><strong>{{ item.title }}</strong></p>

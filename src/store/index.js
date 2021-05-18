@@ -14,7 +14,6 @@ export default new Vuex.Store({
     messages: [], // ALERT 訊息
     orders: [],
     orderPagination: {},
-    loginStatus: false,
     checkoutVisible: true,
     FavoriteList: []
   },
@@ -43,9 +42,6 @@ export default new Vuex.Store({
     },
     ORDERPAGINATION (state, payload) {
       state.orderPagination = { ...payload }
-    },
-    LOGINSTATUS (state, payload) {
-      state.loginStatus = payload
     },
     CHECKOUTVISIBLE (state, payload) {
       state.checkoutVisible = payload
@@ -99,9 +95,6 @@ export default new Vuex.Store({
         context.dispatch('updateMessage', messageGroup)
       })
     },
-    getLoginStatus (context, status) {
-      context.commit('LOGINSTATUS', status)
-    },
     updateCheckoutBtn (context, status) {
       context.commit('CHECKOUTVISIBLE', status)
     },
@@ -109,7 +102,6 @@ export default new Vuex.Store({
       const tmpFavorite = JSON.parse(localStorage.getItem('favorite')) || []
       context.commit('FAVORITELIST', tmpFavorite)
     },
-
     AddFavorite (context, status) {
       const tmpFavorite = JSON.parse(localStorage.getItem('favorite')) || []
       if (tmpFavorite.indexOf(status) === -1) {
@@ -148,16 +140,12 @@ export default new Vuex.Store({
     OrderPagination (state) {
       return state.orderPagination
     },
-    loginStatus (state) {
-      return state.loginStatus
-    },
     checkoutVisible (state) {
       return state.checkoutVisible
     },
     favoritelist (state) {
       return state.FavoriteList
     }
-
   },
   modules: {
     CartModules

@@ -13,10 +13,11 @@ import 'vue-loading-overlay/dist/vue-loading.css'
 import { ValidationProvider, extend, ValidationObserver, localize, configure } from 'vee-validate'
 import TW from 'vee-validate/dist/locale/zh_TW.json'
 import * as rules from 'vee-validate/dist/rules'
+import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueAxios, axios)
 Vue.use(Vuex)
-
+Vue.use(VueLazyload)
 window.bootstrap = bootstrap
 Vue.component('Loading', Loading)
 /* vee-validate */
@@ -50,7 +51,6 @@ router.beforeEach((to, from, next) => {
   const api = `${process.env.VUE_APP_APIHOST}/api/user/check`
   axios.post(api).then((res) => {
     if (res.data.success) {
-      store.dispatch('getLoginStatus', true)
       next()
     } else {
       store.dispatch('getLoginStatus', false)

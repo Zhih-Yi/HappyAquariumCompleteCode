@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="checkout-img"
-  style="background-image: url('https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ2fHxmaXNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">
+  v-lazy:background-image="'https://images.unsplash.com/photo-1578507065211-1c4e99a5fd24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ2fHxmaXNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'">
   </div>
   <div class="container-fluid py-5" >
     <div class="d-flex justify-content-center align-items-center info-box">
@@ -34,12 +34,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 export default {
-  name: 'CheckoutSuccess',
-  computed: {
-    ...mapGetters(['isLoading'])
-  }
+  name: 'CheckoutSuccess'
 }
 </script>

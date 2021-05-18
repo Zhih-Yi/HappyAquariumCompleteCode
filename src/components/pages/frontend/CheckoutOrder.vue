@@ -4,11 +4,10 @@
     <Loader/>
   </loading>
   <div class="img-header bg-cover d-flex justify-content-center align-items-center"
-    style="background-image: url('https://images.unsplash.com/photo-1529057018378-07c51d77da73?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjY3fHxmaXNoJTIwdGFua3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">
-    <h2 class="img-header-title"><strong>結帳-訂單結帳</strong></h2>
+    v-lazy:background-image="'https://images.unsplash.com/photo-1529057018378-07c51d77da73?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjY3fHxmaXNoJTIwdGFua3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'">
+    <h2 class="img-header-title"><strong>結帳-訂單付款</strong></h2>
   </div>
   <div class="container py-5">
-    <!---麵包屑---->
     <div class="row">
       <div class="col-md-6">
         <Breadcrumb/>
@@ -31,7 +30,7 @@
               <div class="card card-body bg-light">
                 <div class="row justify-content-center align-items-center">
                   <div class="content-striped">
-                    <p class="text-alert">優惠卷每次只能用一張喔</p>
+                    <p class="text-alert"><small>優惠卷每次只能用一張喔</small></p>
                     <div class="py-3 align-items-center"
                      v-for="item in AllActiveCouponList" :key="item.id" v-cloak >
                       <div class="col-12 d-flex px-2 align-items-center">
@@ -79,7 +78,7 @@
             {{ cartTotal | currency }}</span>
           </div>
           <div class="d-flex justify-content-between text-success my-1">
-            <small>使用優惠代碼:</small><small class="ms-2" v-cloak v-if="coupon">
+            <small>使用優惠代碼:</small><small class="ms-2" v-cloak v-if="coupon !== {}">
             {{ coupon.code }}</small>
           </div>
           <div class="d-flex justify-content-between border-top border-secondary pt-2 mt-2">
@@ -101,7 +100,7 @@
                   <div class="content-striped">
                     <div class="row mb-2 pb-2 align-items-center" v-for="item in cart" :key="item.id">
                       <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                        <img :src="item.product.imageUrl" :alt="item.product.title" class="cart-img-sm">
+                        <img v-lazy="item.product.imageUrl" :alt="item.product.title" class="cart-img-sm">
                       </div>
                     <div class="col-6 col-sm-8 col-md-8 col-lg-9">
                       <div class="row align-items-center">
@@ -234,6 +233,7 @@ export default {
   },
   methods: {
     useCoupon () {
+      if (this.coupon_code === '') return
       this.$store.dispatch('useCoupon', this.coupon_code)
     },
     createOrder () {

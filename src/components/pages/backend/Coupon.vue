@@ -34,7 +34,7 @@
     </div>
   </div>
   <Pagination :pagination="pagination" @getData="getCoupons"/>
-  <!--新增--->
+  <!---新增---->
   <ValidationObserver v-slot="{ invalid }">
   <div class="modal fade"  id="AddNewModal" tabindex="-1"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
@@ -90,7 +90,7 @@
     </div>
   </div>
   </ValidationObserver>
-  <!--修改--->
+  <!---修改---->
   <ValidationObserver v-slot="{ invalid }">
   <div class="modal fade"  id="UpdateModal" tabindex="-1"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
@@ -146,7 +146,7 @@
     </div>
   </div>
   </ValidationObserver>
-  <!---delete modal-->
+  <!---刪除-->
   <div class="modal fade" id="delCouponModal" tabindex="-1" role="dialog"
      aria-labelledby="delCouponModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -253,6 +253,7 @@ export default {
         }
         vm.getCoupons()
         vm.modalUpdate.hide()
+        vm.modalAdd.hide()
         vm.$store.dispatch('updatedLoading', false)
       }).catch((err) => {
         vm.$store.dispatch('updateMessage', {

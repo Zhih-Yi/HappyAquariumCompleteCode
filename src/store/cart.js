@@ -85,8 +85,7 @@ export default {
             tmpCartItem.splice(keys, 1)
           }
         })
-        // 更新陣列 不放在 forEach 內，否則迴圈會重複執行導致變成加二
-        // tmpCartItem.push(tmp)
+        // 更新陣列，放在原來的索引位置，不放在 forEach 內，否則迴圈會重複執行導致變成加二
         tmpCartItem.splice(index, 0, tmp)
         // 重新寫入 localStorage
         localStorage.setItem('cartData', JSON.stringify(tmpCartItem))

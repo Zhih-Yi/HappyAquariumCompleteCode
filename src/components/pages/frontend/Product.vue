@@ -1,10 +1,9 @@
 <template>
 <div>
   <div class="img-header bg-cover d-flex justify-content-center align-items-center"
-    style="background-image: url('https://images.unsplash.com/photo-1509016068623-286b408eb841?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTExfHxmaXNoJTIwdGFua3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">
+    v-lazy:background-image="'https://images.unsplash.com/photo-1509016068623-286b408eb841?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTExfHxmaXNoJTIwdGFua3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'">
     <h2 class="img-header-title"><strong>商品一覽</strong></h2>
   </div>
-  <!--loader-->
   <loading :active.sync="isLoading">
     <Loader/>
   </loading>
@@ -17,7 +16,7 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="商品快速搜尋" v-model="searchText">
         <button class="btn btn-use btn-hv-style"
-        @click.prevent="isSearch = true; selectKind = '';currentPage = 0"><i class="fas fa-search text-third"></i></button>
+        @click.prevent="isSearch = true; selectKind = '';currentPage = 0"><i class="fas fa-search"></i></button>
       </div>
     </form>
   </div>
@@ -65,7 +64,6 @@
 </template>
 
 <script>
-
 import ProductCard from '@/components/frontend/ProductCard.vue'
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/frontend/Breadcrumb.vue'

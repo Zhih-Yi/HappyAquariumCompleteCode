@@ -36,9 +36,9 @@
       <h3 class="text-center">請新增產品</h3>
     </div>
   </div>
-  <!---分頁--->
+  <!---分頁------>
   <Pagination :pagination="pagination" @getData="getProducts"/>
-  <!---刪除Modal--->
+  <!---刪除Modal---->
   <div class="modal fade"  id="delProductModal" tabindex="-1"  aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -56,7 +56,7 @@
       </div>
     </div>
   </div>
-  <!--新增Modal-->
+  <!--新增Modal---->
   <ValidationObserver v-slot="{ invalid }">
     <div class="modal fade"  id="AddNewModal" tabindex="-1"  aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-xl">
@@ -389,9 +389,11 @@ export default {
       vm.$http[HttpMethod](api, { data: vm.currentProduct }).then((res) => {
         if (res.data.success) {
           vm.modalUpdate.hide()
+          vm.modalAdd.hide()
           vm.getProducts()
         } else {
           vm.modalUpdate.hide()
+          vm.modalAdd.hide()
           vm.getProducts()
           vm.$store.dispatch('updateMessage', {
             message: res.data.message,

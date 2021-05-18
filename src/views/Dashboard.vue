@@ -7,7 +7,7 @@
   <strong  class="text-info">快樂水族</strong></router-link>
   <button class="btn order-1 order-md-2 text-white" @click="isOpen=!isOpen"><i class="fas fa-bars"></i></button>
   </div>
-   <a href="#"  class="ms-auto text-white pb-0 pe-5" @click.prevent="signout">登出</a>
+   <a href="#" class="ms-auto text-white pb-0 pe-5" @click.prevent="signout">登出</a>
 </nav>
 
         <div class="container-fluid">
@@ -45,7 +45,6 @@ export default {
       const vm = this
       this.$http.post(api).then((response) => {
         if (response.data.success) {
-          vm.$store.dispatch('getLoginStatus', false)
           vm.$router.push('/login')
         }
       })
@@ -53,7 +52,6 @@ export default {
   },
   created () {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1')
-
     this.$http.defaults.headers.common.Authorization = `${token}`
   }
 }

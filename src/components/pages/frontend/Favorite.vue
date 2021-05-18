@@ -6,7 +6,7 @@
   </loading>
   <!--標題-->
   <div class="img-header bg-cover d-flex justify-content-center align-items-center"
-    style="background-image: url('https://images.unsplash.com/photo-1516970739312-08b075784b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80')">
+    v-lazy:background-image="'https://images.unsplash.com/photo-1516970739312-08b075784b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=755&q=80'">
     <h2 class="img-header-title"><strong>我的收藏</strong></h2>
   </div>
   <div class="container-fluid">
@@ -21,7 +21,7 @@
       <div class="content-striped" >
         <div class="row mb-2 pb-2  align-items-center" v-for="item in products" :key="item.id" v-cloak >
           <div class="col-6 col-sm-4 col-md-3 col-lg-3">
-            <img :src="item.imageUrl" alt="item.title" class="cart-img">
+            <img v-lazy="item.imageUrl" alt="item.title" class="cart-img">
           </div>
           <div class="col-6 col-sm-8 col-md-9 col-lg-9">
             <div class="row align-items-center">

@@ -81,14 +81,12 @@ export default {
           const expired = res.data.expired
           document.cookie = `hexToken=${token};expires=${new Date(expired)};`
           vm.$store.dispatch('updatedLoading', false)
-          vm.$store.dispatch('getLoginStatus', true)
           vm.$router.push('/admin/dashboard')
         } else {
           vm.$store.dispatch('updateMessage', {
             message: res.data.message,
             status: 'danger'
           })
-          vm.$store.dispatch('getLoginStatus', false)
           vm.$store.dispatch('updatedLoading', false)
         }
       }).catch((err) => {

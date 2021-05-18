@@ -5,7 +5,7 @@
     <span class="cart-num badge rounded-pill bg-alert text-white"><small>{{ tmpCart.length }}</small></span>
   </a>
   <transition name="slide">
-    <div class="cart-content bg-light rounded py-2 px-2" v-if="cartVisible">
+    <div class="cart-content bg-white rounded py-2 px-2" v-if="cartVisible">
       <form>
         <div class="table-scroll">
           <table class="table table-sm" v-if="tmpCart.length>0">
@@ -27,7 +27,13 @@
                 <td valign="middle">
                   {{ item.title }}
                 </td>
-                <td  valign="middle" class="text-end">{{ item.qty }}</td>
+                <td  valign="middle" class="text-end">
+                 <div class="input-group input-group-sm input-group-fixed">
+                  <button class="btn border" @click.prevent="minusQuantity(item)" type="button" id="minus"><strong class="h5">−</strong></button>
+                  <input type="number"  class="form-control" v-model.number="item.qty" @change="verifyNumber(item)">
+                    <button class="btn border" @click.prevent="addQuantity(item)" type="button" id="plus"><strong class="h5">+</strong></button>
+                </div>
+                </td>
                 <td  valign="middle" class="text-end">{{ item.price | currency }}</td>
               </tr>
             </tbody>
@@ -61,7 +67,9 @@ export default {
   data () {
     return {
       cartVisible: false,
-      coupon_code: ''
+      coupon_code: '',
+      min: 1,
+      max: 20
     }
   },
   computed: {
@@ -71,6 +79,29 @@ export default {
     this.$store.dispatch('getTmpCart')
   },
   methods: {
+    addQuantity (data, num = 1) {
+      if (data.qty < 20) {
+        data.qty++
+        this.$store.dispatch('AddTmpCart', { data, num })
+      }
+    },
+    minusQuantity (data, num = -1) {
+      if (data.qty > 1) {
+        data.qty--
+        this.$store.dispatch('AddTmpCart', { data, num })
+      }
+    },
+    verifyNumber (data) {
+      if (data.qty > this.max) {
+        data.qty = this.max
+      }
+      if (data.qty < this.min) {
+        data.qty = this.min
+      }
+      const num = Number(data.qty)
+      const IsTotalNum = true
+      this.$store.dispatch('AddTmpCart', { data, num, IsTotalNum })
+    },
     deleteTmpCartItem (id) {
       this.$store.dispatch('removeTmpCart', id)
     },

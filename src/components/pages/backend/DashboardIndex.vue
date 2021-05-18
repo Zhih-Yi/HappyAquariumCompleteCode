@@ -47,7 +47,7 @@
       </div>
     </div>
   </div>
-  <!-- Modaltoday -->
+  <!-- Modal 訂單 -->
   <div class="modal fade" id="DisplayBoxModal" tabindex="-1" aria-labelledby="DisplayBoxModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl  modal-dialog-scrollable">
       <div class="modal-content">
@@ -178,7 +178,6 @@ export default {
         if (res.data.success) {
           items = res.data.orders
           totalPage = res.data.pagination.total_pages
-
           for (let i = 2; i < totalPage + 1; i++) {
             const apiurl = `${process.env.VUE_APP_APIHOST}/api/${process.env.VUE_APP_APIPATH}/admin/orders?page=${i}`
             vm.$http.get(apiurl).then((res) => {

@@ -1,6 +1,5 @@
 <template>
 <div class="pt-3">
-  <!--loader-->
   <loading :active.sync="isLoading" >
    <Loader/>
   </loading>
@@ -12,7 +11,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="bg-cover content-img mb-3" :style="{ backgroundImage: `url(${ Product.imageUrl})` }" v-cloak >
+        <div class="bg-cover content-img mb-3" v-lazy:background-image="Product.imageUrl" v-cloak >
           <Myfavorite :productID="productId"/>
         </div>
       </div>
@@ -26,9 +25,9 @@
         <div class="row">
           <div class="col-6">
             <div class="input-group mb-3">
-              <button class="btn btn-third" @click.prevent="minusQuantity" type="button" id="minus"><strong class="h4">−</strong></button>
+              <button class="btn border border-2 border-secondary" @click.prevent="minusQuantity" type="button" id="minus"><strong class="h4">−</strong></button>
               <input type="number"  class="form-control" v-model.number="quantity" @change="VerifyNumber">
-              <button class="btn btn-third" @click.prevent="addQuantity" type="button" id="plus"><strong class="h4">+</strong></button>
+              <button class="btn border border-2 border-secondary" @click.prevent="addQuantity" type="button" id="plus"><strong class="h4">+</strong></button>
             </div>
           </div>
         </div>
@@ -85,7 +84,7 @@
           <div class="card-img-wrapper">
             <div class="view-more d-flex justify-content-center align-items-center">查看更多</div>
               <Myfavorite :productID="item.id"/>
-              <img :src="item.imageUrl" class="card-img card-img-size"  v-cloak :alt="item.title"></div>
+              <img v-lazy="item.imageUrl" class="card-img card-img-size"  v-cloak :alt="item.title"></div>
                 <div class="card-body">
                   <p class="card-title  text-third" v-cloak><strong>{{ item.title }}</strong></p>
                   <div class="d-flex justify-content-between">

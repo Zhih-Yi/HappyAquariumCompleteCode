@@ -16,6 +16,10 @@ visibility: hidden;
 background-color: lighten($secondary, 20%);
 color: $secondary;
 }
+/*input group 100px*/
+.input-group-fixed{
+  width:110px;
+}
 /*[transition] slide*/
 .slide-leave-active,
 .slide-enter-active {
