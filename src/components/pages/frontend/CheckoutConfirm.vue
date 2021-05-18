@@ -25,9 +25,10 @@
           <div class="col-6 col-sm-8 col-md-8 col-lg-9">
             <div class="row align-items-center">
               <div class="col-md-5 col-sm-5 col-12">
-                {{ item.title }}
-                <button class="btn py-0 text-third d-sm-none" @click="deleteTmpCartItem(item.id)">
-                <i class="fas fa-times ms-2"></i></button>
+                <p class="mb-0">{{ item.title }}
+                  <button class="btn p-0 text-third d-sm-none" @click="deleteTmpCartItem(item.id)">
+                  <i class="fas fa-times ms-2"></i></button>
+                </p>
                 <br>{{ item.price | currency }}
               </div>
               <div class="col-md-5 col-sm-5 col-12">
@@ -46,7 +47,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="d-flex justify-content-end py-2 mt-3 border-top h5" v-if="tmpCart.length>0">
+        <div class="d-flex justify-content-end py-2 my-3 border-top h5" v-if="tmpCart.length>0">
           <div class="me-4">總計</div>
           <div>{{ tmpTotal | currency }}</div>
         </div>

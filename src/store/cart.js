@@ -157,7 +157,7 @@ export default {
           context.commit('CART', res.data.data.carts)
           context.commit('CARTTOTAL', res.data.data.total)
           context.commit('FINALTOTAL', res.data.data.final_total)
-          if (res.data.data.carts[0].coupon) {
+          if (res.data.data.carts.length > 0) {
             context.commit('COUPON', res.data.data.carts[0].coupon)
           }
         } else {

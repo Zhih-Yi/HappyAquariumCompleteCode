@@ -10,7 +10,7 @@
                 <div class="view-more d-flex justify-content-center align-items-center">
                   查看更多
                 </div>
-                <Myfavorite :productID="item.link"></Myfavorite>
+                <Myfavorite :productID="item.id"></Myfavorite>
                 <img v-lazy="item.imageUrl" class="card-img card-img-size" :alt="item.title">
               </div>
               <div class="card-body">
