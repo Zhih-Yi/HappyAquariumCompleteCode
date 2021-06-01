@@ -48,9 +48,9 @@
       background-color: darken($warning, 5%) !important;
     }
   }
-  &.bg-use {
+  &.bg-secondary {
     &:hover {
-      background-color: darken($use, 5%) !important;
+      background-color: darken($secondary, 5%) !important;
     }
   }
   &.bg-primary {

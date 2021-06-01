@@ -1,6 +1,6 @@
 <template>
 <div class="my-favorite">
-  <i class="fas fa-heart fa-lg text-alert" v-if="favoriteItem===productID" :id="productID" @click.prevent="removeFavorite"></i>
+  <i class="fas fa-heart fa-lg text-white" v-if="favoriteItem===productID" :id="productID" @click.prevent="removeFavorite"></i>
   <i class="far fa-heart fa-lg text-white" :id="productID" v-else  @click.prevent="addFavorite"></i>
 </div>
 </template>

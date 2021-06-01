@@ -1,23 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import Index from '@/components/pages/frontend/Index.vue'
-import Product from '@/components/pages/frontend/Product.vue'
-import Login from '@/components/pages/frontend/Login.vue'
-import Content from '@/components/pages/frontend/Content.vue'
-import Dashboard from '@/views/Dashboard.vue'
-import DashboardIndex from '@/components/pages/backend/DashboardIndex.vue'
-import ProductManage from '@/components/pages/backend/ProductManage.vue'
-import CheckoutConfirm from '@/components/pages/frontend/CheckoutConfirm.vue'
-import CheckoutOrder from '@/components/pages/frontend/CheckoutOrder.vue'
-/* import CheckoutPay from '@/components/pages/frontend/CheckoutPay.vue' */
-import CheckoutSuccess from '@/components/pages/frontend/CheckoutSuccess.vue'
-import Coupon from '@/components/pages/backend/Coupon.vue'
-import Order from '@/components/pages/backend/Order.vue'
-import Favorite from '@/components/pages/frontend/Favorite.vue'
-import ReportDay from '@/components/pages/backend/ReportDay.vue'
-import ReportWeek from '@/components/pages/backend/ReportWeek.vue'
-import ReportMonth from '@/components/pages/backend/ReportMonth.vue'
+import Home from '@/views/frontend/Home.vue'
+import Index from '@/views/frontend/Index.vue'
+import Product from '@/views/frontend/Product.vue'
+import Login from '@/views//frontend/Login.vue'
+import Content from '@/views/frontend/Content.vue'
+import Dashboard from '@/views/backend/Dashboard.vue'
+import DashboardIndex from '@/views/backend/DashboardIndex.vue'
+import ProductManage from '@/views/backend/ProductManage.vue'
+import CheckoutConfirm from '@/views/frontend/CheckoutConfirm.vue'
+import CheckoutOrder from '@/views//frontend/CheckoutOrder.vue'
+import CheckoutSuccess from '@/views/frontend/CheckoutSuccess.vue'
+import Coupon from '@/views/backend/Coupon.vue'
+import Order from '@/views/backend/Order.vue'
+import Favorite from '@/views/frontend/Favorite.vue'
+import ReportDay from '@/views/backend/ReportDay.vue'
+import ReportWeek from '@/views/backend/ReportWeek.vue'
+import ReportMonth from '@/views/backend/ReportMonth.vue'
 
 Vue.use(VueRouter)
 
@@ -65,7 +64,7 @@ const routes = [
         }
       },
       {
-        path: 'content/:contentId',
+        path: 'content/:contentId/kind/:kind?',
         name: 'Content',
         component: Content,
         meta: {

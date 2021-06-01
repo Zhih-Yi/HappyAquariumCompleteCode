@@ -2,7 +2,7 @@
 <div class="breadcrumb">
   <ul>
     <li v-for="(breadcrumb, idx) in breadcrumbList" :key="idx" @click="routeTo(idx)"
-    :class="{'linked': !!breadcrumb.link}">
+    :class="{'linked': !breadcrumb.link}">
     {{ breadcrumb.name }}
     </li>
   </ul>

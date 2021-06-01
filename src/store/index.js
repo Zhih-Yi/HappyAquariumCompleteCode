@@ -49,7 +49,6 @@ export default new Vuex.Store({
     FAVORITELIST (state, payload) {
       state.FavoriteList = payload
     }
-
   },
   actions: {
     updatedLoading (context, status) {

@@ -6,13 +6,17 @@ visibility: hidden;
 }
 .home {
   background-color: $lightgray;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.header-font-style{
+  font-family: 'Reggae One', cursive;
 }
 .btn-hv-style{
 &:hover{
   color:white;
 }
 }
-.btn-use:disabled, .btn-use.disabled{
+.btn-primary:disabled, .btn-primary.disabled{
 background-color: lighten($secondary, 20%);
 color: $secondary;
 }
@@ -46,12 +50,12 @@ color: $secondary;
 //首頁動畫
 .animated {
   opacity: 0;
-  transition: all 0.8s;
+  transition: all 0.9s;
   transform: translateY(50px);
 }
 .animated-x {
   opacity: 0;
-  transition: all 0.7s;
+  transition: all 0.9s;
   transform: translateX(-100px);
 }
 .slidein {
@@ -69,8 +73,13 @@ padding-top:4rem;
 .pt-header-m{
   padding-top:calc( 4rem - 24px -1rem );
   }
+// 首頁圖片
+.img-index{
+  height:300px;
+}
 //navbar
 .navbar-toggler {
+  background-color: transparent;
   &:focus {
     box-shadow: none;
   }
@@ -81,29 +90,66 @@ padding-top:4rem;
   right: 0;
   left: 0;
   z-index: 50;
-  background-color: rgba(0, 0, 0, 0.7);
-  .nav-link {
+  background-color: rgba(0,0,0,0.8);
+  @include media-breakpoint-up(md) {
+    background-color: transparent;
+  }
+  .nav-link:not(.cart) {
     padding-left: 12px;
     color: white;
+    padding-top:0px;
+    padding-bottom: 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    transition: 0.3s;
     @include media-breakpoint-up(md) {
-      padding-left: initial;
+      padding-left: 3px;
+      padding-bottom: 0px;
+      padding-right: 3px;
     }
-
-    &:hover,
-    &:focus {
-      color: $info;
-    }
-    &.active {
-      background-color: $primary;
-      font-weight: 900;
-      border-radius: 10px;
-      border: 3px solid $info;
-
+    &.active, &:hover {
+      border-left:5px solid $info;
       @include media-breakpoint-up(md) {
         border: none;
         border-radius: 0;
-        border-bottom: 4px solid $primary;
+        border-bottom: 2px solid $primary;
         background-color: transparent;
+      }
+    }
+  }
+  .navbar-toggler{
+  .icon-bar {
+    width: 22px;
+    height: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    transition: all 0.2s;
+    background-color:white;
+    display: block;
+    &:first-child {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
+  }
+  
+}
+  .navbar-toggler.collapsed{
+    .icon-bar{
+      &:first-child {
+        transform: rotate(0);
+      }
+      &:nth-child(2) {
+        opacity: 1;
+      }
+      &:nth-child(3) {
+        transform: rotate(0);
       }
     }
   }
@@ -112,16 +158,17 @@ padding-top:4rem;
 //carousel
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.3);
-  right: 0;
-  left: 0;
-  bottom: 0;
-  top: 0;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
   padding: 60px 30px;
 }
 
 .header-carousel-item {
-  height: 350px;
+  height: 480px;
 }
+
 .bg-cover {
   background-position: center center;
   background-size: cover;
@@ -132,22 +179,13 @@ padding-top:4rem;
   border-radius: 100%;
   margin: 15px;
 }
-/*header title*/
-.text-shadow {
-  text-shadow: 0.2em 0.2em $primary;
-}
-.header-line {
-  width: 300px;
-  height: 4px;
-  background-color: $info;
-  margin: 0 auto;
-  border-radius: 6px;
-}
 //cardgroup
-
 .card-img-size {
   object-fit: cover;
   height: 180px;
+}
+.product-card{
+  color:black;
 }
 a {
   text-decoration: none;
@@ -216,40 +254,48 @@ a {
   }
 
   .layer {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
     bottom: 0;
     right: 0;
     left: 0;
     position: absolute;
     font-size: 24px;
+    color:black;
   }
+}
+/*slick*/
+.slick-slide {
+  margin: 0 12px;
+}
+/* the parent */
+.slick-list {
+  margin: 0 -12px;
+}
+/*contact*/
+.contact-bg{
+  height: 350px;
+  width:100%;
+  background-size:contain;
 }
 /*footer*/
 .footer {
-  position: relative;
-  background-image: url("~@/assets/images/footerWaveBg.png");
-  background-size: cover;
   padding-bottom: 10px;
-  padding-top: 80px;
-  bottom:0;
-  @include media-breakpoint-up(md) {
-   margin-top: 60px;
-   padding-top: 150px;
-  }
+  padding-top: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .icon-link {
   i {
-    color: $secondary;
+    color: $graylight;
   }
   &:hover i {
-    color: white;
+    color: $primary;
   }
 }
 .contact-link {
-  color: $secondary;
+  color: $graylight;
   &:hover {
-    color: white;
+    color: $primary;
   }
 }
 /*購物車*/
@@ -283,9 +329,19 @@ a {
 }
 /*內頁標題*/
 .img-header {
-  height: 180px;
+  height: 200px;
+  position:relative;
+  .img-header-img{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:100%;
+    filter: grayscale(25%) blur(3px);
+  }
   .img-header-title {
     color: white;
     text-shadow: 0.1em 0.1em 0.2em black;
+    z-index:10;
   }
 }

@@ -1,27 +1,25 @@
+.list-group-menu-sticky{
+position:sticky;
+top:50px;
+}
 .list-group-item {
   cursor: pointer;
-  background-color: rgb(216,216,216);
   color: $third;
   &:hover {
-    background-color: $info;
-    color: white;
     border-left: 6px solid $primary;
-    i {
-      color: $primary;
-    }
   }
   &.active {
-    background-color: $info;
-    color: white;
+    background-color:white;
+    color:$primary;
+    border:1px solid rgba(0, 0, 0, 0.125);
     border-left: 6px solid $primary;
-    i {
-      color: $primary;
-    }
   }
 }
 .card-shadow {
+  border: 1px solid rgba(0, 0, 0, 0.2);
   &:hover{
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+    border:none;
   }
 }
 .card-description {
@@ -30,17 +28,21 @@
   overflow: hidden;
 }
 .card-btn {
-  border: 2px solid $use;
+  border: 2px solid $primary;
+  border-radius:0 0 0.25rem 0.25rem;
   &:hover{
      color:white;
   }
 }
 .product-pagination {
   .active .page-link {
-    background-color: $info;
+    background-color: $primary;
   }
   .page-link {
-    color: $info;
-    border: 1px solid $info;
+    color: $secondary;
+    border: 1px solid $secondary;
   }
+}
+.img-no-result{
+  color:lighten($third,60%);
 }

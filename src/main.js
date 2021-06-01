@@ -14,6 +14,7 @@ import { ValidationProvider, extend, ValidationObserver, localize, configure } f
 import TW from 'vee-validate/dist/locale/zh_TW.json'
 import * as rules from 'vee-validate/dist/rules'
 import VueLazyload from 'vue-lazyload'
+import 'slick-carousel/slick/slick'
 
 Vue.use(VueAxios, axios)
 Vue.use(Vuex)
@@ -38,33 +39,9 @@ Vue.component('ValidationProvider', ValidationProvider)
 Vue.config.productionTip = false
 axios.defaults.withCredentials = true
 Vue.filter('currency', CurrencyFilter)
-// window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
-
-/* 檢查是否登入 */
-router.beforeEach((to, from, next) => {
-  const api = `${process.env.VUE_APP_APIHOST}/api/user/check`
-  axios.post(api).then((res) => {
-    if (res.data.success) {
-      next()
-    } else {
-      store.dispatch('getLoginStatus', false)
-      if (to.meta.requiresAuth) {
-        store.dispatch('updateMessage', {
-          message: res.data.message,
-          status: 'danger'
-        })
-        next({
-          path: '/login'
-        })
-      } else {
-        next()
-      }
-    }
-  })
-})

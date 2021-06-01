@@ -1,9 +1,8 @@
 <template>
 <div>
-  <h2 class="text-center text-third"><strong>{{ title }}</strong>
+  <h2 class="text-center text-third">{{ title }}
     <i class="ms-3" :class="icon"></i>
   </h2>
-  <div class="header-line"></div>
 </div>
 </template>
 <script>

@@ -1,8 +1,8 @@
 <template>
 <div id="shoppingCart" class=" d-flex align-items-center order-md-1" :class="{'invisible':!checkoutVisible}">
   <a class="cart nav-link" @click.prevent="cartVisible=!cartVisible">
-    <i class="fa-lg fas fa-shopping-cart fa-lg text-primary"></i>
-    <span class="cart-num badge rounded-pill bg-alert text-white"><small>{{ tmpCart.length }}</small></span>
+    <i class="fa-lg fas fa-shopping-cart fa-lg text-white"></i>
+    <span class="cart-num badge rounded-pill bg-danger text-white"><small>{{ tmpCart.length }}</small></span>
   </a>
   <transition name="slide">
     <div class="cart-content bg-white rounded py-2 px-2" v-if="cartVisible">
@@ -29,9 +29,9 @@
                 </td>
                 <td  valign="middle" class="text-end">
                  <div class="input-group input-group-sm input-group-fixed">
-                  <button class="btn border" @click.prevent="minusQuantity(item)" type="button" id="minus"><strong class="h5">−</strong></button>
-                  <input type="number"  class="form-control" v-model.number="item.qty" @change="verifyNumber(item)">
-                    <button class="btn border" @click.prevent="addQuantity(item)" type="button" id="plus"><strong class="h5">+</strong></button>
+                  <button class="btn border" @click="minusQuantity(item)" type="button" :id="`minus-${item.id}`"><strong class="h5">−</strong></button>
+                  <input type="number" class="form-control" v-model.number="item.qty" @change="verifyNumber(item)">
+                    <button class="btn border" @click="addQuantity(item)" type="button" :id="`plus-${item.id}`"><strong class="h5">+</strong></button>
                 </div>
                 </td>
                 <td  valign="middle" class="text-end">{{ item.price | currency }}</td>
@@ -43,14 +43,14 @@
           <div class="me-4">總計</div>
           <div>{{ tmpTotal | currency }}</div>
         </div>
-        <button type="button" @click="toCheckout" class="btn btn-use btn-hv-style btn-block w-100 mb-2"
+        <button type="button" @click="toCheckout" class="btn btn-primary btn-hv-style btn-block w-100 my-1"
            v-if="tmpCart.length>0">
            結帳去<i class="fas fa-shopping-bag ms-2"></i>
         </button>
         <div class="px-2 py-2 text-center"  v-if="tmpCart.length===0" >
           <i class="fa-lg fas fa-shopping-cart fa-3x mb-3"></i><br>
           <p><strong class="mb-3">您的購物車是空的</strong></p>
-          <router-link to="/product" class="btn btn-use btn-hv-style">去逛逛<i class="fas fa-angle-double-right"></i></router-link>
+          <router-link to="/product" class="btn btn-primary btn-hv-style">去逛逛<i class="fas fa-angle-double-right"></i></router-link>
         </div>
       </form>
     </div>

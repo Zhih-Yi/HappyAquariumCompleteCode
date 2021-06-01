@@ -1,7 +1,12 @@
 .content-img {
-  height: 250px;
+  height: 300px;
   max-width: 100%;
   position: relative;
+}
+.bg-content{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /*隱藏number箭頭*/
 /* Chrome, Safari, Edge, Opera */
@@ -22,6 +27,9 @@ pre {
 }
 .my-favorite {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.1);
+  padding: 8px;
+  border-radius: 50%;
 }

@@ -47,11 +47,9 @@ $green:   #198754 !default;
 $teal:    #20c997 !default;
 $cyan:    #0dcaf0 !default;
 $lightblue:	#97CBFF !default;
-$hex: rgba(12,180,185,0.7) !default;
-$btnblue: #4F89EE !default;
 $graydeep: #4F4F4F !default;
 $graylight: #BEBEBE !default;
-$lightgray: #FAF9F4 !default;
+$lightgray: #fdfdfd !default;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -70,8 +68,6 @@ $colors: (
   "gray":       $gray-600,
   "gray-dark":  $gray-800,
   "lightblue":  $lightblue,
-  "hex":        $hex,
-  "btnblue":    $btnblue,
   "graydeep":   $graydeep,
   "graylight":  $graylight,
   "lightgray":   $lightgray
@@ -80,19 +76,17 @@ $colors: (
 
 // scss-docs-start theme-color-variables
 
-$primary:    $lightblue!default;//$blue
-$secondary:  $graylight!default;//$gray-600
+$primary:    rgba(12,180,180, 0.8)!default;//$blue
+$secondary:  #88BBD6!default;//$gray-600
 $third:      $graydeep!default;
 $success:    $green!default;
-$use:        $hex!default;
-$alert:      $pink!default;
-$info:       $btnblue!default;//$cyan
 $warning:    $yellow!default;
-$abstract:   $orange !default;
 $danger:     $red!default;//$red
+$info:       $cyan!default;
 $light:      $gray-100 !default;
 $dark:       $gray-900 !default;
 $lightgray:    $lightgray !default;
+$abstract:     $orange!default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -106,10 +100,8 @@ $theme-colors: (
   "light": $light,
   "dark": $dark,
   "third":$third,
-  "use":$use,
-  "alert":$alert,
-  "abstract":$abstract,
-  "lightgray": $lightgray
+  "lightgray": $lightgray,
+  "abstract": $abstract
 ) !default;
 // scss-docs-end theme-colors-map
 
