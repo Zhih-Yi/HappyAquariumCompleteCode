@@ -1,3 +1,4 @@
+$header-font-weight: 600;
 [v-cloak] {
   display: none !important;
 }
@@ -8,8 +9,14 @@ visibility: hidden;
   background-color: $lightgray;
   font-family: 'Noto Sans TC', sans-serif;
 }
+pre{
+  font-family:'Noto Sans TC', sans-serif;
+}
 .header-font-style{
   font-family: 'Reggae One', cursive;
+}
+.font-600{
+  font-weight: $header-font-weight;
 }
 .btn-hv-style{
 &:hover{
@@ -39,8 +46,8 @@ color: $secondary;
 //向上按鈕
 .toTop {
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  right: 25px;
+  bottom: 40px;
   z-index: 60;
   &:hover {
     transform: scale(1.5);
@@ -157,7 +164,7 @@ padding-top:4rem;
 
 //carousel
 .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(148, 102, 102, 0.3);
   right: 0px;
   left: 0px;
   bottom: 0px;
@@ -166,7 +173,10 @@ padding-top:4rem;
 }
 
 .header-carousel-item {
-  height: 480px;
+  height: 600px;
+  @include media-breakpoint-up(md) {
+    height: 700px;
+  }
 }
 
 .bg-cover {
@@ -174,8 +184,8 @@ padding-top:4rem;
   background-size: cover;
 }
 .carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 100%;
   margin: 15px;
 }
@@ -214,7 +224,7 @@ a {
   position: relative;
   .view-more {
     opacity: 0;
-    transition: all 0.3s;
+    transition: all 0.5s;
     color: white;
     position: absolute;
     top: 0;
@@ -244,23 +254,24 @@ a {
 }
 .menu-item {
   position: relative;
-  height: 100px;
+  height: 150px;
   margin: 10px;
 
   &:hover .layer {
     top: 0;
-    transition: 0.3s;
-    padding-top: 30px;
+    transition: 0.5s;
+    padding-top: 60px;
   }
 
   .layer {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.75);
     bottom: 0;
     right: 0;
     left: 0;
     position: absolute;
     font-size: 24px;
     color:black;
+    font-weight: $header-font-weight;
   }
 }
 /*slick*/

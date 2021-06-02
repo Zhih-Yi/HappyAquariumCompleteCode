@@ -35,6 +35,9 @@
 
 <script>
 export default {
-  name: 'CheckoutSuccess'
+  name: 'CheckoutSuccess',
+  created () {
+    this.$store.dispatch('updateCheckoutBtn', true)
+  }
 }
 </script>

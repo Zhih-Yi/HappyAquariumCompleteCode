@@ -55,6 +55,10 @@ export default {
   methods: {
     AddCart (data, num = 1) {
       this.$store.dispatch('AddTmpCart', { data, num })
+      this.$store.dispatch('updateMessage', {
+        message: `<i class="fas fa-info-circle me-2"></i>${data.title} 已成功加入購物車`,
+        status: 'primary'
+      })
     }
   },
   computed: {
@@ -73,7 +77,9 @@ export default {
             slidesToShow: 2,
             slidesToScroll: 2,
             infinite: true,
-            dots: true
+            dots: true,
+            prevArrow: false,
+            nextArrow: false
           }
         },
         {
@@ -82,7 +88,9 @@ export default {
             slidesToShow: 1,
             slidesToScroll: 1,
             infinite: true,
-            dots: true
+            dots: true,
+            prevArrow: false,
+            nextArrow: false
           }
         }
       ]

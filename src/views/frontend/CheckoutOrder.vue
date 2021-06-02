@@ -46,9 +46,9 @@
                       </div>
                       <div class="col-12 px-2">
                         <div class="align-items-center">
-                          <div class="input-group input-group-sm my-3">
-                            <button type="button" class="btn-outline-third btn" @click="HandleCopy">點選複製優惠碼<i class="far fa-clone ms-1"></i></button>
-                            <input type="text" readonly :value="item.code" class="bg-light input-readonly" >
+                          <div class="my-3">
+                            <p>優惠碼:<input type="text" readonly :value="item.code" class="ms-2 input-readonly"></p>
+                            <button type="button" class="btn-outline-third btn btn-sm" @click="HandleCopy"><i class="far fa-clone me-2"></i>點選複製優惠碼</button>
                           </div>
                         </div>
                       </div>

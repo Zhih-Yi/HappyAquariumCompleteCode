@@ -1,6 +1,6 @@
 <template>
 <div>
-  <nav class="navbar navbar-main navbar-expand-md bg-gradient p-0" ref="navbar">
+  <nav class="navbar navbar-main navbar-expand-md bg-gradient p-3" ref="navbar">
   <div class="container-fluid">
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"  aria-expanded="false">
       <div>
@@ -17,7 +17,7 @@
           <router-link class="nav-link fw-bold" @click.native="foldNav" to="/" exact-active-class="active">首頁</router-link>
         </li>
         <li class="nav-item me-3">
-         <router-link class="nav-link fw-bold" @click.native="foldNav" to="/product" exact-active-class="active">商品</router-link>
+         <router-link class="nav-link fw-bold" @click.native="foldNav" to="/product" active-class="active">商品</router-link>
         </li>
         <li class="nav-item me-3">
          <router-link class="nav-link fw-bold" @click.native="foldNav" to="/favorite" exact-active-class="active">收藏</router-link>

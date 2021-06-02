@@ -5,11 +5,81 @@
   </loading>
   <Carousel v-cloak/>
   <div class="container-fluid pt-header">
+    <HeaderTitle :title='`分類導覽`' :icon='`fas fa-th-large`' />
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row g-0">
+          <div class="col-6 col-sm-3" >
+            <router-link to="/product/水草">
+              <div class="menu-item bg-cover text-center" v-cloak
+              v-lazy:background-image="require('@/assets/images/水草.jpg')">
+                <div class="layer">水草</div>
+              </div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/水質控制">
+              <div class="menu-item bg-cover text-center" v-cloak
+             v-lazy:background-image="require('@/assets/images/水質.png')">
+              <div class="layer">水質控制</div></div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/觀賞蝦">
+              <div class="menu-item bg-cover text-center" v-cloak
+               v-lazy:background-image="require('@/assets/images/觀賞蝦.jpg')">
+              <div class="layer">觀賞蝦</div></div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/水草肥料">
+              <div class="menu-item text-center bg-cover" v-cloak
+              v-lazy:background-image="require('@/assets/images/肥料.png')">
+              <div class="layer">水草肥料</div>
+              </div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/飼料">
+              <div class="menu-item bg-cover text-center" v-cloak
+              v-lazy:background-image="require('@/assets/images/飼料.png')">
+              <div class="layer">飼料</div>
+              </div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/觀賞魚">
+              <div class="menu-item bg-cover text-center" v-cloak
+              v-lazy:background-image="require('@/assets/images/觀賞魚.jpg')">
+              <div class="layer">觀賞魚</div></div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/水族用品">
+              <div class="menu-item bg-cover text-center" v-cloak
+             v-lazy:background-image="require('@/assets/images/用品.png')">
+              <div class="layer">水族用品</div>
+              </div>
+            </router-link>
+          </div>
+          <div class="col-6 col-sm-3">
+            <router-link to="/product/觀賞螺">
+              <div class="menu-item bg-cover text-center" v-cloak
+               v-lazy:background-image="require('@/assets/images/觀賞螺.jpg')">
+                <div class="layer">觀賞螺</div>
+              </div>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container-fluid pt-header">
     <div class="row justify-content-center">
       <div class="col-md-11 col-lg-10">
         <div class="row d-flex align-items-center pt-3 pb-5">
           <div class="col-md-6 text-center animated-x mb-3">
-            <h2 class="mb-3">關於我們</h2>
+            <h2 class="mb-3 font-600">關於我們</h2>
             <p>快樂水族成立於2021年5月，核心價值在於</p>
             <p>提供高品質的水族設備與周邊用品，</p>
             <p>讓魚兒與水中生物能健康順利的成長，</p>
@@ -24,80 +94,10 @@
             <img class="w-100 img-index" :src="require('@/assets/images/img-index2.jpg')" alt="實用美學">
           </div>
           <div class="col-md-6 text-center animated-x order-1 order-md-2 mb-3">
-            <h2 class="mb-3">實用美學</h2>
+            <h2 class="mb-3 font-600">實用美學</h2>
             <p>快樂水族販售各類方便實用的水族用品，</p>
             <p>以及活潑美麗的水族生物，</p>
             <p>幫您打造出優雅精緻的水族魚缸</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid pt-header">
-    <HeaderTitle :title='`分類導覽`' :icon='`fas fa-th-large`' />
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="row g-0">
-          <div class="col-6 col-sm-3 animated-x" >
-            <router-link to="/product/水草">
-              <div class="menu-item bg-cover text-center" v-cloak
-              v-lazy:background-image="require('@/assets/images/水草.jpg')">
-                <div class="layer">水草</div>
-              </div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/水質控制">
-              <div class="menu-item bg-cover text-center" v-cloak
-             v-lazy:background-image="require('@/assets/images/水質.png')">
-              <div class="layer">水質控制</div></div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/觀賞蝦">
-              <div class="menu-item bg-cover text-center" v-cloak
-               v-lazy:background-image="require('@/assets/images/觀賞蝦.jpg')">
-              <div class="layer">觀賞蝦</div></div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/水草肥料">
-              <div class="menu-item text-center bg-cover" v-cloak
-              v-lazy:background-image="require('@/assets/images/肥料.png')">
-              <div class="layer">水草肥料</div>
-              </div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/飼料">
-              <div class="menu-item bg-cover text-center" v-cloak
-              v-lazy:background-image="require('@/assets/images/飼料.png')">
-              <div class="layer">飼料</div>
-              </div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/觀賞魚">
-              <div class="menu-item bg-cover text-center" v-cloak
-              v-lazy:background-image="require('@/assets/images/觀賞魚.jpg')">
-              <div class="layer">觀賞魚</div></div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/水族用品">
-              <div class="menu-item bg-cover text-center" v-cloak
-             v-lazy:background-image="require('@/assets/images/用品.png')">
-              <div class="layer">水族用品</div>
-              </div>
-            </router-link>
-          </div>
-          <div class="col-6 col-sm-3 animated-x">
-            <router-link to="/product/觀賞螺">
-              <div class="menu-item bg-cover text-center" v-cloak
-               v-lazy:background-image="require('@/assets/images/觀賞螺.jpg')">
-                <div class="layer">觀賞螺</div>
-              </div>
-            </router-link>
           </div>
         </div>
       </div>

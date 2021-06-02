@@ -1,11 +1,11 @@
 <template>
-<div id="shoppingCart" class=" d-flex align-items-center order-md-1" :class="{'invisible':!checkoutVisible}">
+<div id="shoppingCart" class=" d-flex align-items-center order-md-1">
   <a class="cart nav-link" @click.prevent="cartVisible=!cartVisible">
     <i class="fa-lg fas fa-shopping-cart fa-lg text-white"></i>
     <span class="cart-num badge rounded-pill bg-danger text-white"><small>{{ tmpCart.length }}</small></span>
   </a>
   <transition name="slide">
-    <div class="cart-content bg-white rounded py-2 px-2" v-if="cartVisible">
+    <div class="cart-content bg-white rounded py-2 px-2" v-if="cartVisible && checkoutVisible">
       <form>
         <div class="table-scroll">
           <table class="table table-sm" v-if="tmpCart.length>0">
@@ -53,6 +53,12 @@
           <router-link to="/product" class="btn btn-primary btn-hv-style">去逛逛<i class="fas fa-angle-double-right"></i></router-link>
         </div>
       </form>
+    </div>
+    <div v-if="!checkoutVisible && cartVisible" class="cart-content bg-white rounded py-2 px-2">
+      <div class="px-2 py-2 text-center">
+        <i class="fas fa-shopping-bag fa-3x mb-3"></i><br>
+        <p><strong class="mb-3">結帳中...</strong></p>
+        </div>
     </div>
   </transition>
 </div>

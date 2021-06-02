@@ -11,8 +11,11 @@
   max-height: 50px;
 }
 .input-readonly {
-  border: 1px solid $third;
+  border: none;
   outline: none;
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  background-color: transparent;
+  max-width: 150px;
+  @include media-breakpoint-up(md) {
+    max-width:200px
+  }
 }

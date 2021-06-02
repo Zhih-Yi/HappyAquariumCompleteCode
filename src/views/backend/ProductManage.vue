@@ -1,6 +1,5 @@
 <template>
 <div class="pt-5">
-  <!--loader-->
   <loading :active.sync="isLoading" >
    <Loader/>
   </loading>
