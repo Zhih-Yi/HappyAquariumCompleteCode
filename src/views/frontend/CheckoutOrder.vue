@@ -224,9 +224,9 @@ export default {
     }
   },
   created () {
+    this.getAllCoupons()
     this.$store.dispatch('getCart')
     this.$store.dispatch('updateCheckoutBtn', false)
-    this.getAllCoupons()
   },
   computed: {
     ...mapGetters(['cart', 'isLoading', 'cartTotal', 'finalTotal', 'checkoutVisible', 'coupon'])
