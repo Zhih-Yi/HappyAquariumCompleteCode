@@ -224,8 +224,8 @@ export default {
     }
   },
   created () {
-    this.getAllCoupons()
     this.$store.dispatch('getCart')
+    this.getAllCoupons()
     this.$store.dispatch('updateCheckoutBtn', false)
   },
   computed: {
