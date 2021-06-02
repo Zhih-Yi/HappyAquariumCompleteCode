@@ -29,7 +29,7 @@
                   <button type="button" class="btn p-0 text-third d-sm-none" @click="deleteTmpCartItem(item.id)">
                   <i class="fas fa-times ms-2"></i></button>
                 </p>
-                <br>{{ item.price | currency }}
+                <p class="mb-2">{{ item.price | currency }}</p>
               </div>
               <div class="col-md-5 col-sm-5 col-12">
                 <div class="input-group input-group-sm input-group-fixed mb-3">
