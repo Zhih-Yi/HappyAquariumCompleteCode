@@ -1,13 +1,9 @@
 <template>
 <div class="home">
-
-<!--navbar component-->
 <Navbar></Navbar>
-
 <Alert></Alert>
 <router-view></router-view>
 <ScrollToTop></ScrollToTop>
-
 <div class="footer">
   <div class="container">
   <div class="row ">
@@ -31,14 +27,11 @@
   </div>
 </div>
 </div>
-<!---footer-->
-<!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
 </div>
 </template>
 
 <script>
-
 import Navbar from '@/components/frontend/Navbar.vue'
 import Alert from '@/components/AlertMessage.vue'
 import ScrollToTop from '@/components/ScrollToTop.vue'

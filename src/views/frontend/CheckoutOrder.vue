@@ -244,7 +244,7 @@ export default {
       const textMessage = vm.user.message.trim().replace(/[&<>"'`=/]/g, '')
       vm.$http.post(api, { data: { user: vm.user }, message: textMessage }).then((res) => {
         if (res.data.success) {
-          this.orderId = res.data.orderId
+          vm.orderId = res.data.orderId
         } else {
           vm.$store.dispatch('updateMessage', {
             message: res.data.message,

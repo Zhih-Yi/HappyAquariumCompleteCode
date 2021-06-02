@@ -42,7 +42,7 @@
 </div>
 </template>
 <script>
-import Myfavorite from './MyFavorite'
+import Myfavorite from './MyFavorite.vue'
 import { mapGetters } from 'vuex'
 import $ from 'jquery'
 

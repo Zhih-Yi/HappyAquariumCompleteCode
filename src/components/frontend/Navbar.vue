@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import ShoppingCart from './ShoppingCart'
+import ShoppingCart from './ShoppingCart.vue'
 import { mapGetters } from 'vuex'
 import $ from 'jquery'
 
