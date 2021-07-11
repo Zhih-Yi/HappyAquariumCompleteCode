@@ -76,12 +76,12 @@ $colors: (
 
 // scss-docs-start theme-color-variables
 
-$primary:    rgba(12,180,180, 0.8)!default;//$blue
-$secondary:  #88BBD6!default;//$gray-600
+$primary:    #4ABDAC!default; 
+$secondary:  #88BBD6!default;
 $third:      $graydeep!default;
 $success:    $green!default;
 $warning:    $yellow!default;
-$danger:     $red!default;//$red
+$danger:     $red!default;
 $info:       $cyan!default;
 $light:      $gray-100 !default;
 $dark:       $gray-900 !default;

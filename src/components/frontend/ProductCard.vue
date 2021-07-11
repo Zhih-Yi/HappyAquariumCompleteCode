@@ -15,7 +15,7 @@
           <p class="card-title mb-0"><strong>{{ item.title }}</strong></p>
           <p class="mb-1 card-description"><small>{{ item.description }}</small></p>
           <div class="d-flex justify-content-between">
-            <span class="text-decoration-line-through"><small>{{ item.origin_price |currency }}</small></span>
+            <span class="text-decoration-line-through"><small>{{ item.origin_price | currency }}</small></span>
             <strong  class="text-danger">NT {{ item.price | currency }} </strong>
           </div>
         </div>

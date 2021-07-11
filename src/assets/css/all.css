@@ -11934,8 +11934,16 @@ fieldset:disabled .btn {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
+pre {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
 .header-font-style {
   font-family: 'Reggae One', cursive;
+}
+
+.font-600 {
+  font-weight: 600;
 }
 
 .btn-hv-style:hover {
@@ -11971,8 +11979,8 @@ fieldset:disabled .btn {
 
 .toTop {
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  right: 25px;
+  bottom: 40px;
   z-index: 60;
 }
 
@@ -11985,16 +11993,16 @@ fieldset:disabled .btn {
 
 .animated {
   opacity: 0;
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
+  -webkit-transition: all 0.9s;
+  transition: all 0.9s;
   -webkit-transform: translateY(50px);
           transform: translateY(50px);
 }
 
 .animated-x {
   opacity: 0;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  -webkit-transition: all 0.9s;
+  transition: all 0.9s;
   -webkit-transform: translateX(-100px);
           transform: translateX(-100px);
 }
@@ -12017,6 +12025,10 @@ fieldset:disabled .btn {
 
 .pt-header-m {
   padding-top: calc( 4rem - 24px -1rem);
+}
+
+.img-index {
+  height: 300px;
 }
 
 .navbar-toggler {
@@ -12119,7 +12131,7 @@ fieldset:disabled .btn {
 }
 
 .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(148, 102, 102, 0.3);
   right: 0px;
   left: 0px;
   bottom: 0px;
@@ -12128,7 +12140,13 @@ fieldset:disabled .btn {
 }
 
 .header-carousel-item {
-  height: 380px;
+  height: 600px;
+}
+
+@media (min-width: 768px) {
+  .header-carousel-item {
+    height: 700px;
+  }
 }
 
 .bg-cover {
@@ -12137,8 +12155,8 @@ fieldset:disabled .btn {
 }
 
 .carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 100%;
   margin: 15px;
 }
@@ -12207,8 +12225,8 @@ a {
 
 .card-img-wrapper .view-more {
   opacity: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   color: white;
   position: absolute;
   top: 0;
@@ -12240,25 +12258,26 @@ a {
 
 .menu-item {
   position: relative;
-  height: 100px;
+  height: 150px;
   margin: 10px;
 }
 
 .menu-item:hover .layer {
   top: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  padding-top: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
 .menu-item .layer {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.75);
   bottom: 0;
   right: 0;
   left: 0;
   position: absolute;
   font-size: 24px;
   color: black;
+  font-weight: 600;
 }
 
 /*slick*/
@@ -12771,18 +12790,6 @@ pre {
   max-width: 100px;
 }
 
-.checkout-img-wrapper {
-  height: 260px;
-  background: black;
-}
-
-.checkout-img-wrapper .checkout-img {
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100%;
-}
-
 /*球移動*/
 .dot-bounce {
   position: relative;
@@ -12968,10 +12975,16 @@ pre {
 }
 
 .input-readonly {
-  border: 1px solid #4F4F4F;
+  border: none;
   outline: none;
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  background-color: transparent;
+  max-width: 150px;
+}
+
+@media (min-width: 768px) {
+  .input-readonly {
+    max-width: 200px;
+  }
 }
 
 /* Slider */

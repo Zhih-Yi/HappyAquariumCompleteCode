@@ -68,7 +68,7 @@
               <div class="col-md-12 py-2">
                 <label class="manage-header "><strong>購物清單</strong></label>
                 <ul class="manage-text mb-0 list-point-inset">
-                  <li v-for="product in currentOrder.products" :key="product.id">{{product.product.title}}
+                  <li v-for="product in currentOrder.products" :key="product.id">{{ product.product.title }}
                    ×{{ product.qty }}
                   </li>
                 </ul>

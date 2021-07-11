@@ -62,7 +62,6 @@
     <div class="row">
       <div class="col-md-12">
         <div class="mb-4">
-          <h3 ><i class="fas fa-exclamation-circle me-2"></i>購物須知</h3>
           <p class="py-2">
           一般商品可選擇超商取貨付款，商品出貨時間為3-5天，若購買活體則一律黑貓寄送，商品出貨時間為1-2天。
           <br>
@@ -93,7 +92,7 @@
                   <p class="card-title" v-cloak><strong>{{ item.title }}</strong></p>
                   <div class="d-flex justify-content-between">
                   <span class="text-decoration-line-through" v-cloak><small>NT ${{ item.origin_price | currency }}</small></span>
-                  <strong  class="text-danger" v-cloak>NT {{ item.price | currency }} </strong>
+                  <strong class="text-danger" v-cloak>NT {{ item.price | currency }} </strong>
                 </div>
               </div>
               <div class="card-footer border-0 p-0 bg-light">

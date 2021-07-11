@@ -1,5 +1,5 @@
 <template>
-<div class="row py-3  justify-content-center ">
+<div class="row py-3 justify-content-center ">
   <div class="col-md-10">
     <div class="row g-0">
       <div class="col-md-6">
@@ -26,7 +26,7 @@
                 </ValidationProvider>
                 <ValidationProvider rules="required" v-slot="{ errors, classes }">
                   <div class="form-floating">
-                    <textarea class="form-control mb-3" id="Msg" v-model="msg" placeholder="留言" style="height: 100px" :class="classes" name="訊息"></textarea>
+                    <textarea class="form-control mb-3" id="Msg" v-model="msg" placeholder="留言" style="height: 100px;" :class="classes" name="訊息"></textarea>
                     <label for="Msg" v-if="errors.length === 0">留言</label>
                     <label class="invalid-feedback" for="Msg">{{ errors[0] }}</label>
                   </div>

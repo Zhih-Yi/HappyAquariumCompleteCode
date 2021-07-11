@@ -20,7 +20,7 @@
             <tbody>
               <tr v-for="item in tmpCart" :key="item.id">
                 <td valign="middle">
-                  <button @click.stop="deleteTmpCartItem(item.id)" class="btn p-0 text-third" v-if="checkoutVisible">
+                  <button type="button" @click.stop="deleteTmpCartItem(item.id)" class="btn p-0 text-third" v-if="checkoutVisible">
                     <i class="fas fa-trash-alt fa-xs"></i>
                   </button>
                 </td>

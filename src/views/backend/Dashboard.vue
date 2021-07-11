@@ -12,7 +12,7 @@
     <div class="container-fluid">
       <div>
        <Sidebar :open="isOpen" @closeNav="isOpen=false"></Sidebar>
-        <main class="dashboard-main" :class="{'open' :isOpen===true,'close':isOpen===false}">
+        <main class="dashboard-main" :class="{'open' :isOpen,'close':!isOpen}">
           <router-view></router-view>
           <ScrollToTop></ScrollToTop>
         </main>

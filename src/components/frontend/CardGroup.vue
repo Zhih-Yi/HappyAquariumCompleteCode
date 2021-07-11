@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="card-footer border-0  p-0 bg-light">
-                  <button class="btn btn-block btn-primary w-100 card-btn" @click.prevent="AddCart(item)">
+                  <button type="button" class="btn btn-block btn-primary w-100 card-btn" @click.prevent="AddCart(item)">
                   加入購物車<i class="ms-2 fas fa-cart-plus"></i>
                    <i class="fas fa-spinner fa-spin ms-2" v-if="loadingItem===item.id"></i>
                   </button>
