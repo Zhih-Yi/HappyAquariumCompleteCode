@@ -1,5 +1,4 @@
 <template>
-<div>
   <div class="row pt-3 justify-content-center">
     <div class="col-md-10">
       <div class="row slick-group">
@@ -16,11 +15,13 @@
               <div class="card-body">
                   <p class="card-title card-description"><strong>{{ item.title }}</strong></p>
                 <div class="d-flex justify-content-between">
-                  <span class="text-decoration-line-through"><small>{{ item.origin_price | currency}}</small></span>
-                  <strong  class="text-danger">{{ item.price | currency }} </strong>
+                  <span class="text-decoration-line-through">
+                    <small>{{ item.origin_price | currency }}</small>
+                  </span>
+                  <strong class="text-danger">{{ item.price | currency }}</strong>
                 </div>
               </div>
-              <div class="card-footer border-0  p-0 bg-light">
+              <div class="card-footer border-0 p-0 bg-light">
                   <button type="button" class="btn btn-block btn-primary w-100 card-btn" @click.prevent="AddCart(item)">
                   加入購物車<i class="ms-2 fas fa-cart-plus"></i>
                    <i class="fas fa-spinner fa-spin ms-2" v-if="loadingItem===item.id"></i>
@@ -32,15 +33,15 @@
       </div>
       <div class="row text-end py-2 d-flex align-items-center">
         <div class="col-12">
-          <router-link to="/product" exact-active-class="active" class="badge bg-secondary badge-pills text-dark link-shop ">
-          去逛逛<i class="fas fa-angle-double-right ms-2 "></i>
+          <router-link to="/product" exact-active-class="active" class="badge bg-secondary badge-pills text-dark link-shop">
+          去逛逛<i class="fas fa-angle-double-right ms-2"></i>
           </router-link>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
+
 <script>
 import Myfavorite from './MyFavorite.vue'
 import { mapGetters } from 'vuex'
@@ -77,9 +78,7 @@ export default {
             slidesToShow: 2,
             slidesToScroll: 2,
             infinite: true,
-            dots: true,
-            prevArrow: false,
-            nextArrow: false
+            dots: true
           }
         },
         {
@@ -88,9 +87,7 @@ export default {
             slidesToShow: 1,
             slidesToScroll: 1,
             infinite: true,
-            dots: true,
-            prevArrow: false,
-            nextArrow: false
+            dots: true
           }
         }
       ]

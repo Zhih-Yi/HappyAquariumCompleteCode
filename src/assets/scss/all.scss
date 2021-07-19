@@ -1,6 +1,9 @@
 @import "~bootstrap/scss/functions";
 @import "./helper/variables";
 @import "~bootstrap/scss/bootstrap";
+@import "./helper/fixSlick";
+@import "slick-carousel/slick/slick.scss";
+@import "slick-carousel/slick/slick-theme.scss";
 @import "./home";
 @import "./login";
 @import "./product";
@@ -9,6 +12,4 @@
 @import "./productManage";
 @import "./checkout";
 @import "./favoriteCoupon";
-@import "./helper/fixSlick";
-@import "slick-carousel/slick/slick.scss";
-@import "slick-carousel/slick/slick-theme.scss";
+

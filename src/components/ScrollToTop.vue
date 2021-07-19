@@ -1,8 +1,9 @@
 <template>
-<div class="toTop text-primary" v-if="visble">
-  <a href="#top"><i class="fas fa-chevron-circle-up fa-lg"></i></a>
-</div>
+  <div class="toTop text-primary" v-if="visble">
+    <a href="#top"><i class="fas fa-chevron-circle-up fa-lg"></i></a>
+  </div>
 </template>
+
 <script>
 export default {
   name: 'ScrollToTop',

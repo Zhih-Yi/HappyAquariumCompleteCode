@@ -1,7 +1,7 @@
 <template>
 <div class="pt-5">
   <loading :active.sync="isLoading" >
-   <Loader/>
+   <LoaderAnimation/>
   </loading>
   <h2 class="mt-4 manage-header">本日訂單一覽<i class="fas fa-calendar ms-2"></i></h2>
   <div class="table-responsive">
@@ -68,36 +68,46 @@
               <div class="col-md-12 py-2">
                 <label class="manage-header "><strong>購物清單</strong></label>
                 <ul class="manage-text mb-0 list-point-inset">
-                  <li v-for="product in currentOrder.products" :key="product.id">{{ product.product.title }}
-                   ×{{ product.qty }}
+                  <li v-for="product in currentOrder.products" :key="product.id">
+                  {{ product.product.title }}×{{ product.qty }}
                   </li>
                 </ul>
               </div>
             </div>
             <div class="row bg-light">
               <div class="col-md-6 py-2">
-                <label for="name" class="manage-header"><strong>購買者</strong></label>
-                <p class="manage-text mb-0"> {{ currentOrder.user.name }}</p>
+                <label for="name" class="manage-header">
+                  <strong>購買者</strong>
+                </label>
+                <p class="manage-text mb-0">{{ currentOrder.user.name }}</p>
               </div>
               <div class="col-md-6 py-2">
-                <label for="email" class="manage-header"><strong>email</strong></label>
-                <p class="manage-text mb-0"> {{ currentOrder.user.email }}</p>
+                <label for="email" class="manage-header">
+                  <strong>email</strong>
+                </label>
+                <p class="manage-text mb-0">{{ currentOrder.user.email }}</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 py-2">
-                <label for="tel" class="manage-header"><strong>電話</strong></label>
-                <p class="manage-text mb-0"> {{ currentOrder.user.tel }}</p>
+                <label for="tel" class="manage-header">
+                  <strong>電話</strong>
+                </label>
+                <p class="manage-text mb-0">{{ currentOrder.user.tel }}</p>
               </div>
               <div class="col-md-6 py-2">
-                <label for="address" class="manage-header"><strong>地址</strong></label>
-                <p class="manage-text mb-0"> {{ currentOrder.user.address }}</p>
+                <label for="address" class="manage-header">
+                  <strong>地址</strong>
+                </label>
+                <p class="manage-text mb-0">{{ currentOrder.user.address }}</p>
               </div>
             </div>
             <div class="row bg-light">
               <div class="col-md-12 py-2">
-                <label class="manage-header"><strong>留言</strong></label>
-                <p class="manage-text mb-0"> {{ currentOrder.user.message }}</p>
+                <label class="manage-header">
+                  <strong>留言</strong>
+                </label>
+                <p class="manage-text mb-0">{{ currentOrder.user.message }}</p>
               </div>
             </div>
           </div>
@@ -109,14 +119,14 @@
 </template>
 
 <script>
+import LoaderAnimation from '@/components/LoaderAnimation.vue'
 import { mapGetters } from 'vuex'
 import { Modal } from 'bootstrap'
-import Loader from '@/components/Loader.vue'
 
 export default {
   name: 'ReportDay',
   components: {
-    Loader
+    LoaderAnimation
   },
   data () {
     return {

@@ -1,10 +1,10 @@
-/**favorite**/
+/*收藏*/
 .content-striped > div {
   &:nth-child(2n) {
     background-color: rgba(0, 0, 0, 0.05);
   }
 }
-/**coupon*/
+/*優惠*/
 .coupon {
   background-color: $primary;
   max-width: 100px;
@@ -16,6 +16,6 @@
   background-color: transparent;
   max-width: 150px;
   @include media-breakpoint-up(md) {
-    max-width:200px
+    max-width:200px;
   }
 }

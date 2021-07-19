@@ -1,13 +1,13 @@
 <template>
   <div>
     <loading :active.sync="isLoading">
-      <Loader/>
+      <LoaderAnimation/>
     </loading>
     <div class="img-header d-flex justify-content-center align-items-center">
       <div class="bg-cover img-header-img" v-lazy:background-image="require('@/assets/images/banner-checkout2.jpeg')"></div>
-      <h2 class="img-header-title"><strong>結帳-訂單付款</strong></h2>
+      <h2 class="img-header-title pt-5 pt-md-0"><strong>結帳-訂單付款</strong></h2>
     </div>
-    <div class="container py-5">
+    <div class="container py-5 mh-content">
       <div class="row">
         <div class="col-md-6">
           <Breadcrumb/>
@@ -15,18 +15,21 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <CheckoutFlow :step="2" />
+          <CheckoutFlow :step="2"/>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-6 mb-3">
-          <div v-if="cart.length>0">
-            <h5 class="fw-bold"><i class="fas fa-tag me-2 text-use"></i>套用優惠卷</h5>
+          <div v-if="cart.length > 0">
+            <h5 class="fw-bold">
+              <i class="fas fa-tag me-2 text-use"></i>套用優惠卷
+            </h5>
             <div class="border-secondary border rounded bg-white px-3">
-            <button class="btn btn-outline-third my-3" @click="isOpenCoupon=!isOpenCoupon" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-outline-third my-3" @click="isOpenCoupon=!isOpenCoupon" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCoupon" aria-expanded="false" aria-controls="collapse">
               檢視優惠卷 <i class="fas" :class="{'fa-chevron-up':isOpenCoupon,'fa-chevron-down':!isOpenCoupon}"></i>
             </button>
-              <div class="collapse mb-3" id="collapseExample">
+              <div class="collapse mb-3" id="collapseCoupon">
                 <div class="card card-body bg-light">
                   <div class="row justify-content-center align-items-center">
                     <div class="content-striped">
@@ -54,23 +57,27 @@
                         </div>
                       </div>
                     </div>
-                    <div v-if="AllActiveCouponList.length===0&&!isLoading"  class="py-5 text-center">
+                    <div v-if="AllActiveCouponList.length === 0 && !isLoading" class="py-5 text-center">
                       <h3>目前沒有優惠卷喔!</h3>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="input-group input-group-sm mb-3" v-if="cart.length>0">
-                <input type="text" class="form-control bg-light" @click="HandlePaste" v-model="coupon_code" placeholder="請貼上優惠碼" aria-label="請貼上優惠碼" aria-describedby="button-addon">
+              <div class="input-group input-group-sm mb-3" v-if="cart.length > 0">
+                <input type="text" class="form-control bg-light" @click="HandlePaste" v-model="coupon_code"
+                placeholder="請貼上優惠碼" aria-label="請貼上優惠碼" aria-describedby="button-addon">
                 <div class="input-group-append">
-                  <button class="btn btn-primary btn-hv-style" type="button" id="button-addon" @click="useCoupon">套用優惠碼</button>
+                  <button class="btn btn-primary btn-hv-style" type="button" id="button-addon"
+                  @click="useCoupon">套用優惠碼</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-6 mb-3">
-          <h5 class="fw-bold"><i class="fas fa-truck me-2 ms-2 text-use"></i>訂單資訊</h5>
+          <h5 class="fw-bold">
+            <i class="fas fa-truck me-2 ms-2 text-use"></i>訂單資訊
+          </h5>
           <div class="text-end border py-3 px-3 border-secondary rounded bg-white">
             <div class="d-flex justify-content-between">
               <span>小計:</span>
@@ -78,11 +85,13 @@
               {{ cartTotal | currency }}</span>
             </div>
             <div class="d-flex justify-content-between text-success my-1">
-              <small>使用優惠代碼:</small><small class="ms-2" v-cloak v-if="coupon !== {}">
+              <small>使用優惠代碼:</small>
+              <small class="ms-2" v-cloak v-if="coupon !== {}">
               {{ coupon.code }}</small>
             </div>
             <div class="d-flex justify-content-between border-top border-secondary pt-2 mt-2">
-              <span>總計:</span><span class="ms-2"  v-cloak>
+              <span>總計:</span>
+              <span class="ms-2" v-cloak>
               {{ finalTotal | currency }}</span>
               </div>
             </div>
@@ -91,8 +100,11 @@
             <div class="accordion accordion-flush mb-3 border border-secondary rounded" id="orderDetail">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orderDetailContent" aria-expanded="false" aria-controls="flush-collapseOne">
-                <h5 class="fw-bold"><i class="fas fa-shopping-bag me-2 text-use"></i>查看訂購商品資訊</h5>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#orderDetailContent" aria-expanded="false" aria-controls="flush-collapseOne">
+                <h5 class="fw-bold">
+                  <i class="fas fa-shopping-bag me-2 text-use"></i>查看訂購商品資訊
+                </h5>
                 </button>
                 </h2>
                 <div id="orderDetailContent" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#orderDetail">
@@ -100,20 +112,22 @@
                     <div class="content-striped">
                       <div class="row mb-2 pb-2 align-items-center" v-for="item in cart" :key="item.id">
                         <div class="col-6 col-sm-4 col-md-4 col-lg-3">
-                          <img v-lazy="item.product.imageUrl" :alt="item.product.title" class="cart-img-sm">
+                          <img v-lazy="item.product.imageUrl" :alt="item.product.title" class="cart-img-sm mt-1">
                         </div>
                       <div class="col-6 col-sm-8 col-md-8 col-lg-9">
                         <div class="row align-items-center">
                           <div class="col-md-6">
-                            <small>{{ item.product.title }} <span class="ms-1">×{{ item.qty }}</span></small>
-                            <span class="badge bg-success ms-2" v-if="item.total!==item.final_total">
+                            <small>{{ item.product.title }}
+                              <span class="ms-1">×{{ item.qty }}</span>
+                            </small>
+                            <span class="badge bg-success ms-2" v-if="item.total !== item.final_total">
                            折扣商品
                             </span>
                           </div>
                           <div class="col-md-3">
                           {{ item.product.price | currency }}
                           </div>
-                          <div class="col-md-3 text-success" v-if="item.total!=item.final_total">
+                          <div class="col-md-3 text-success" v-if="item.total != item.final_total">
                           折扣價{{ item.final_total | currency }}
                           </div>
                         </div>
@@ -129,9 +143,11 @@
       <div class="col-12 py-3">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-12">
-            <h5 class="fw-bold"><i class="fas fa-user-edit me-2 text-use"></i>聯絡人資料</h5>
+            <h5 class="fw-bold">
+              <i class="fas fa-user-edit me-2 text-use"></i>聯絡人資料
+            </h5>
             <ValidationObserver v-slot="{ invalid }">
-              <form  @submit.prevent="createOrder" class="border border-secondary rounded px-3 py-3 bg-white" >
+              <form @submit.prevent="createOrder" class="border border-secondary rounded px-3 py-3 bg-white">
                 <div class="row">
                   <div class="col-md-6 mb-4">
                    <ValidationProvider rules="required" v-slot="{ errors, classes }">
@@ -144,7 +160,7 @@
                     <ValidationProvider rules="required|email" v-slot="{ errors, classes }">
                       <label for="email"><span class="text-danger">*</span>信箱</label>
                       <input type="email" name="信箱" id="email" v-model="user.email" class="form-control bg-light" :class="classes">
-                      <span class="invalid-feedback" >{{ errors[0] }}</span>
+                      <span class="invalid-feedback">{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                 </div>
@@ -183,7 +199,9 @@
                   </div>
                 </div>
                 <div class="text-end mb-4">
-                  <button type="submit" class="btn btn-primary btn-hv-style" :disabled = "invalid||cart.length===0">送出訂單<i class="fas fa-angle-double-right ms-2"></i></button>
+                  <button type="submit" class="btn btn-primary btn-hv-style" :disabled = "invalid || cart.length===0">
+                    送出訂單<i class="fas fa-angle-double-right ms-2"></i>
+                  </button>
                 </div>
               </form>
             </ValidationObserver>
@@ -195,17 +213,17 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/frontend/Breadcrumb.vue'
-import Loader from '@/components/Loader.vue'
+import LoaderAnimation from '@/components/LoaderAnimation.vue'
 import CheckoutFlow from '@/components/frontend/CheckoutFlow.vue'
+import { mapGetters } from 'vuex'
 import $ from 'jquery'
 
 export default {
   name: 'CheckoutOrder',
   components: {
     Breadcrumb,
-    Loader,
+    LoaderAnimation,
     CheckoutFlow
   },
   data () {

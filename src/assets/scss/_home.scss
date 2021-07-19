@@ -13,6 +13,9 @@ visibility: hidden;
 pre{
   font-family:'Noto Sans TC', sans-serif;
 }
+.mh-content{
+  min-height: calc( 100vh - 200px - 154px );
+}
 .header-font-style{
   font-family: 'Reggae One', cursive;
 }
@@ -28,7 +31,7 @@ pre{
 background-color: lighten($secondary, 20%);
 color: $secondary;
 }
-/*input group 100px*/
+/*input group 110px*/
 .input-group-fixed{
   width:110px;
 }
@@ -167,7 +170,7 @@ padding-top:4rem;
   }
 }
 
-//carousel
+/*圖片輪播*/
 .carousel-caption {
   background-color: rgba(148, 102, 102, 0.3);
   right: 0px;
@@ -194,7 +197,7 @@ padding-top:4rem;
   border-radius: 100%;
   margin: 15px;
 }
-//cardgroup
+/*商品卡片*/
 .card-img-size {
   object-fit: cover;
   height: 180px;
@@ -261,7 +264,6 @@ a {
   position: relative;
   height: 150px;
   margin: 10px;
-
   &:hover .layer {
     top: 0;
     transition: 0.5s;
@@ -283,17 +285,40 @@ a {
 .slick-slide {
   margin: 0 12px;
 }
-/* the parent */
-.slick-list {
-  margin: 0 -12px;
+.slick-prev{
+  left: 20px;
+  z-index:10;
 }
-/*contact*/
+.slick-next{
+  right:20px;
+  z-index:10;
+}
+.slick-prev:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f053";
+  font-weight: 600; 
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  padding: 6px 10px;
+}
+
+.slick-next:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f054";
+  font-weight: 600; 
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  padding: 6px 10px;
+}
+/*聯絡資訊*/
 .contact-bg{
   height: 350px;
   width:100%;
   background-size:contain;
 }
-/*footer*/
+/*頁尾*/
 .footer {
   padding-bottom: 10px;
   padding-top: 20px;
@@ -332,7 +357,6 @@ a {
   box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.3);
   width: 300px;
   font-size: 14px;
-
   .fix-footer {
     position: sticky;
     bottom: 0;
@@ -340,7 +364,7 @@ a {
   }
 }
 .table-scroll {
-  max-height: calc(100vh - 200px); //navbar
+  max-height: calc(100vh - 200px);
   overflow-y: auto;
 }
 /*內頁標題*/

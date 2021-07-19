@@ -11,7 +11,7 @@ export default new Vuex.Store({
     status: {
       loadingItem: ''
     },
-    messages: [], // ALERT 訊息
+    messages: [],
     orders: [],
     orderPagination: {},
     checkoutVisible: true,

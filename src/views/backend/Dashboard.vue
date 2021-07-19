@@ -1,25 +1,30 @@
 <template>
   <div>
-    <Alert></Alert>
-    <nav class="navbar navbar-main navbar-expand-md navbar-light bg-gradient navbar-dark bg-dark">
+    <Alert/>
+    <nav class="navbar navbar-main navbar-expand-md bg-gradient navbar-dark bg-dark">
       <div class="d-flex">
         <router-link class="ms-3 navbar-brand order-2 order-md-1" to="/admin/dashboard">
-        <img src="@/assets/images/fish.png" class="me-2" alt="logo"/><span class="text-white header-font-style">快樂水族</span></router-link>
-        <button type="button" class="btn order-1 order-md-2 text-white" @click="isOpen=!isOpen"><i class="fas fa-bars"></i></button>
+          <img src="@/assets/images/fish.png" class="me-2" alt="logo"/>
+          <span class="text-white header-font-style">快樂水族</span>
+        </router-link>
+        <button type="button" class="btn order-1 order-md-2 text-white" @click="isOpen=!isOpen">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
       <a href="#" class="ms-auto text-white pb-0 pe-5" @click.prevent="signout">登出</a>
     </nav>
     <div class="container-fluid">
       <div>
-       <Sidebar :open="isOpen" @closeNav="isOpen=false"></Sidebar>
-        <main class="dashboard-main" :class="{'open' :isOpen,'close':!isOpen}">
+        <Sidebar :open="isOpen" @closeNav="isOpen=false"/>
+        <div class="dashboard-main" :class="{'open':isOpen, 'close':!isOpen}">
           <router-view></router-view>
           <ScrollToTop></ScrollToTop>
-        </main>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import Sidebar from '@/components/backend/Sidebar.vue'
 import Alert from '@/components/AlertMessage.vue'

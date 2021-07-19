@@ -1,7 +1,7 @@
 <template>
 <div class="pt-5">
   <loading :active.sync="isLoading" >
-   <Loader/>
+   <LoaderAnimation/>
   </loading>
   <h2 class="mt-4 manage-header">訂單管理<i class="fas fa-truck ms-2"></i></h2>
   <div class="table-responsive">
@@ -20,14 +20,19 @@
           <td>{{ item.user.email }}</td>
           <td>
             <ul class="ps-0">
-              <li v-for="product in item.products" :key="product.id" class="list-insie">
+              <li v-for="product in item.products" :key="product.id" class="list-inside">
               {{ product.product.title }} 數量{{ product.qty }}{{ product.product.unit }}
               </li>
             </ul>
           </td>
           <td class="text-end pe-3">{{ item.total | currency }}</td>
-          <td><span class="text-success" v-if="item.is_paid">已付款</span><span v-else class="text-danger">未付款</span></td>
-          <td><button type="button" class="btn btn-outline-third" @click="OpenModal(item)">檢視</button></td>
+          <td>
+            <span class="text-success" v-if="item.is_paid">已付款</span>
+            <span v-else class="text-danger">未付款</span>
+          </td>
+          <td>
+            <button type="button" class="btn btn-outline-third" @click="OpenModal(item)">檢視</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -36,7 +41,7 @@
     </div>
   </div>
   <Pagination :pagination="OrderPagination" @getData="getOrders"/>
-    <!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade" id="ViewModal" tabindex="-1" aria-labelledby="ViewModalabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
       <div class="modal-content border-0">
@@ -49,27 +54,37 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6 py-2 mb-2">
-              <label for="datetime" class="manage-header"><strong>購買日期</strong></label>
-              <p class="manage-text mb-0"> {{ getCreatedDate(currentOrder) }}</p>
+              <label for="datetime" class="manage-header">
+                <strong>購買日期</strong>
+              </label>
+              <p class="manage-text mb-0">{{ getCreatedDate(currentOrder) }}</p>
             </div>
             <div class="col-md-6 py-2">
-              <label for="orderNo" class="manage-header"><strong>訂單編號</strong></label>
+              <label for="orderNo" class="manage-header">
+                <strong>訂單編號</strong>
+              </label>
               <p class="manage-text mb-0">{{ currentOrder.id }}</p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 py-2 bg-light">
-              <label for="total" class="manage-header"><strong>金額</strong></label>
-              <p class="manage-text mb-0"> {{ currentOrder.total | currency }}</p>
+              <label for="total" class="manage-header">
+                <strong>金額</strong>
+              </label>
+              <p class="manage-text mb-0">{{ currentOrder.total | currency }}</p>
             </div>
             <div class="col-md-6 py-2 bg-light">
-              <label for="isPaid" class="manage-header"><strong>狀態</strong></label>
-              <p class="manage-text mb-0"> {{ currentOrder.is_paid?'已付款':'未付款' }}</p>
+              <label for="isPaid" class="manage-header">
+                <strong>狀態</strong>
+              </label>
+              <p class="manage-text mb-0">{{ currentOrder.is_paid ? '已付款' : '未付款' }}</p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 py-2">
-              <label class="manage-header "><strong>購物清單</strong></label>
+              <label class="manage-header">
+                <strong>購物清單</strong>
+              </label>
               <ul class="manage-text mb-0 list-point-inset">
                 <li v-for="product in currentOrder.products" :key="product.id">{{ product.product.title }}
                 數量{{ product.qty }}{{ product.product.unit }}
@@ -79,8 +94,10 @@
           </div>
           <div class="row">
             <div class="col-md-6 py-2 bg-light">
-              <label for="name" class="manage-header"><strong>購買者</strong></label>
-              <p class="manage-text mb-0"> {{ currentOrder.user.name }}</p>
+              <label for="name" class="manage-header">
+                <strong>購買者</strong>
+              </label>
+              <p class="manage-text mb-0">{{ currentOrder.user.name }}</p>
             </div>
             <div class="col-md-6 py-2 bg-light">
               <label for="email" class="manage-header"><strong>email</strong></label>
@@ -89,18 +106,24 @@
           </div>
           <div class="row">
             <div class="col-md-6 py-2">
-              <label for="tel" class="manage-header"><strong>電話</strong></label>
-              <p class="manage-text mb-0"> {{ currentOrder.user.tel }}</p>
+              <label for="tel" class="manage-header">
+                <strong>電話</strong>
+              </label>
+              <p class="manage-text mb-0">{{ currentOrder.user.tel }}</p>
             </div>
             <div class="col-md-6 py-2">
-              <label for="address" class="manage-header"><strong>地址</strong></label>
-              <p class="manage-text mb-0"> {{ currentOrder.user.address }}</p>
+              <label for="address" class="manage-header">
+                <strong>地址</strong>
+              </label>
+              <p class="manage-text mb-0">{{ currentOrder.user.address }}</p>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 py-2 bg-light">
-              <label class="manage-header"><strong>留言</strong></label>
-              <p class="manage-text mb-0"> {{ currentOrder.user.message }}</p>
+              <label class="manage-header">
+                <strong>留言</strong>
+              </label>
+              <p class="manage-text mb-0">{{ currentOrder.user.message }}</p>
             </div>
           </div>
         </div>
@@ -109,17 +132,18 @@
   </div>
 </div>
 </template>
+
 <script>
 import Pagination from '@/components/backend/PaginationManage.vue'
+import LoaderAnimation from '@/components/LoaderAnimation.vue'
 import { mapGetters } from 'vuex'
 import { Modal } from 'bootstrap'
-import Loader from '@/components/Loader.vue'
 
 export default {
   name: 'Order',
   components: {
     Pagination,
-    Loader
+    LoaderAnimation
   },
   data () {
     return {

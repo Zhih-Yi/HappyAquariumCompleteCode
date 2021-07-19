@@ -1,5 +1,4 @@
 <template>
-<div>
   <nav aria-label="Page navigation">
     <ul class="pagination manage-pagination justify-content-center">
       <li class="page-item" :class="{'disabled': !pagination.has_pre}">
@@ -18,8 +17,8 @@
       </li>
     </ul>
   </nav>
-</div>
 </template>
+
 <script>
 export default {
   name: 'Pagination',

@@ -1,107 +1,105 @@
 <template>
-<div class="pt-5 pb-3">
-  <!--loader-->
-  <loading :active.sync="isLoading">
-    <Loader/>
-  </loading>
-  <div class="row py-4">
-    <DisplayBox :count="filterToday.length" :title="'本日訂單'" :bg="'bg-secondary'" @showModal="openTodayModel"/>
-    <DisplayBox :count="filterWeek.length" :title="'本周訂單'" :bg="'bg-warning'" @showModal="openWeekModel"/>
-    <DisplayBox :count="filterMonth.length" :title="'本月訂單'" :bg="'bg-primary'" @showModal="openMonthModel"/>
-  </div>
-  <div class="row ">
-    <div class="d-flex justify-content-between">
-      <h5 >訂單銷售一覽</h5>
-      <select class="form-select form-select-sm time-select"
+  <div class="pt-5 pb-3">
+    <loading :active.sync="isLoading">
+      <LoaderAnimation/>
+    </loading>
+    <div class="row py-4">
+      <DisplayBox :count="filterToday.length" :title="'本日訂單'" :bg="'bg-secondary'" @showModal="openTodayModel"/>
+      <DisplayBox :count="filterWeek.length" :title="'本周訂單'" :bg="'bg-warning'" @showModal="openWeekModel"/>
+      <DisplayBox :count="filterMonth.length" :title="'本月訂單'" :bg="'bg-primary'" @showModal="openMonthModel"/>
+    </div>
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h5 >訂單銷售一覽</h5>
+        <select class="form-select form-select-sm time-select"
         aria-label="select" v-model="chartDataType">
-        <option selected value="week">本周</option>
-        <option value="year">年度</option>
-      </select>
-    </div>
-    <div class="col-md-6 py-2">
-      <canvas id="weekLineChart" class="bg-light" v-show="chartDataType === 'week'"></canvas>
-      <canvas id="monthLineChart" class="bg-light" v-show="chartDataType === 'year'"></canvas>
-    </div>
-    <div class="col-md-6 py-2">
-      <canvas id="weekSalesChart" class="bg-light" v-show="chartDataType === 'week'"></canvas>
-      <canvas id="MonthSalesChart" class="bg-light" v-show="chartDataType === 'year'"></canvas>
-    </div>
-  </div>
-  <div class="board row py-3">
-    <div class="col-md-4">
-      <div class="bg-lightgray infoCard-shadow m-3 p-3 text-center rounded">
-        <h5>訂單總計</h5>
-        <strong class="text-alert infoCard-title">{{ ordersAll.length }}</strong>
+          <option selected value="week">本周</option>
+          <option value="year">年度</option>
+        </select>
+      </div>
+      <div class="col-md-6 py-2">
+        <canvas id="weekLineChart" class="bg-light" v-show="chartDataType === 'week'"></canvas>
+        <canvas id="monthLineChart" class="bg-light" v-show="chartDataType === 'year'"></canvas>
+      </div>
+      <div class="col-md-6 py-2">
+        <canvas id="weekSalesChart" class="bg-light" v-show="chartDataType === 'week'"></canvas>
+        <canvas id="MonthSalesChart" class="bg-light" v-show="chartDataType === 'year'"></canvas>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="bg-lightgray infoCard-shadow m-3 p-3 text-center rounded">
-        <h5>年度銷售額</h5>
-        <strong class="text-abstract infoCard-title">{{ profitYear | currency }}</strong>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="bg-lightgray infoCard-shadow m-3 p-3 text-center rounded">
-        <h5>本周銷售額</h5>
-         <strong class="text-use infoCard-title">{{ weekProfit |currency }}</strong>
-      </div>
-    </div>
-  </div>
-  <!-- Modal 訂單 -->
-  <div class="modal fade" id="DisplayBoxModal" tabindex="-1" aria-labelledby="DisplayBoxModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl  modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header bg-abstract text-white">
-          <h5 class="modal-title" id="DisplayBoxModalLabel">
-              {{ ModalTitle }}
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="board row py-3">
+      <div class="col-md-4">
+        <div class="bg-lightgray infoCard-shadow m-3 p-3 text-center rounded">
+          <h5>訂單總計</h5>
+          <strong class="text-alert infoCard-title">{{ ordersAll.length }}</strong>
         </div>
-        <div class="modal-body">
-          <table class="table table-striped" v-if="currentFilterDay.length>0" >
-            <thead>
-              <tr>
-                <th>購買時間</th>
-                <th>購買內容</th>
-                <th>應付金額</th>
-                <th>狀態</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in currentFilterDay" :key="item.id">
-                <td>{{ TrnasformDate(item.create_at) }}</td>
-                <td>
-                  <ul class="pl-0">
-                    <li v-for="product in item.products" :key="product.id">
+      </div>
+      <div class="col-md-4">
+        <div class="bg-lightgray infoCard-shadow m-3 p-3 text-center rounded">
+          <h5>年度銷售額</h5>
+          <strong class="text-abstract infoCard-title">{{ profitYear | currency }}</strong>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="bg-lightgray infoCard-shadow m-3 p-3 text-center rounded">
+          <h5>本周銷售額</h5>
+          <strong class="text-use infoCard-title">{{ weekProfit | currency }}</strong>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 訂單 -->
+    <div class="modal fade" id="DisplayBoxModal" tabindex="-1" aria-labelledby="DisplayBoxModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header bg-abstract text-white">
+            <h5 class="modal-title" id="DisplayBoxModalLabel">
+              {{ ModalTitle }}
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" v-if="currentFilterDay.length>0" >
+              <thead>
+                <tr>
+                  <th>購買時間</th>
+                  <th>購買內容</th>
+                  <th>應付金額</th>
+                  <th>狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in currentFilterDay" :key="item.id">
+                  <td>{{ TrnasformDate(item.create_at) }}</td>
+                  <td>
+                    <ul class="pl-0">
+                      <li v-for="product in item.products" :key="product.id">
                         {{ product.product.title }} {{ product.qty
                         }} {{ product.product.unit }}
-                    </li>
-                  </ul>
-                </td>
-                <td>{{ item.total | currency }}</td>
-                <td>
-                  <span class="text-success" v-if="item.is_paid">已付款</span>
-                  <span v-else class="text-danger">未付款</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div v-else>尚無訂單</div>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>{{ item.total | currency }}</td>
+                  <td>
+                    <span class="text-success" v-if="item.is_paid">已付款</span>
+                    <span v-else class="text-danger">未付款</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div v-else>尚無訂單</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
 import DisplayBox from '@/components/backend/DisplayBox.vue'
+import LoaderAnimation from '@/components/LoaderAnimation.vue'
 import { mapGetters } from 'vuex'
 import { Modal } from 'bootstrap'
 import moment from 'moment'
 import { Chart, registerables } from 'chart.js'
-import Loader from '@/components/Loader.vue'
-
 Chart.register(...registerables)
 
 export default {
@@ -123,7 +121,7 @@ export default {
   },
   components: {
     DisplayBox,
-    Loader
+    LoaderAnimation
   },
   computed: {
     ...mapGetters(['isLoading', 'checkoutVisible']),

@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-4 col-sm-4 mb-3">
+  <div class="col-md-4 col-sm-4 mb-3">
     <a href="#" @click.prevent="showModalDialog">
       <div class="text-center py-2 rounded text-dark bg-gradient display-box" :class="bg">
         <h5 class="display-7">{{ title }}</h5>
@@ -7,8 +7,9 @@
         <small>查看訂單<i class="far fa-hand-point-right ms-2"></i></small>
       </div>
     </a>
-</div>
+  </div>
 </template>
+
 <script>
 export default {
   name: 'DisplayBox',
